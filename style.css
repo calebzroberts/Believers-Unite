@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Protest+Strike&display=swap');
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lexend", Arial, Helvetica, sans-serif;
+}
+
+/*GENERAL STYLING*/
+h1, h2, h3, h4, h5, h6, .highlight {
+  font-family: "Protest Strike", Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1rem;
+}
+
+/* HEADER */
+header {
+  background-color: #fff;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0 0.5rem;
+  color: #222;
+}
+
+header h1 strong {
+  color: #a81e1e;
+}
+
+/* NAVBAR */
+nav {
+  background-color: #d2b100;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.6rem 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #a81e1e;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 85vh;
+  background: url("Images/Bible.webp") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #3a2f2f;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  background-color: #d2b100;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;
+  transition: background 0.3s;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #b99b00;
+}
+
+/* GET INVOLVED */
+#get-involved {
+  text-align: center;
+  padding: 4rem 10%;
+}
+
+#get-involved .highlight {
+  color: #a81e1e;
+}
+
+#get-involved .involved-forms {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.form-box {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.divider {
+  width: 2px;
+  background-color: #ccc;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+input,
+textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* GOLD SECTION */
+.gold-section {
+  background-color: #d2b100;
+  color: #222;
+  padding: 4rem 10%;
+  text-align: center;
+}
+
+.gold-section h2 {
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.gold-section p {
+  max-width: 700px;
+  margin: 0.5rem auto;
+  line-height: 1.6;
+}
+
+/* BELIEFS */
+.beliefs-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 4rem 10%;
+}
+
+.beliefs-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.beliefs-content {
+  position: relative;
+  z-index: 1;
+}
+
+.belief-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.belief-card {
+  background: #a81e1e;
+  color: #fff;
+  padding: 1.2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  line-height: 1.4;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.belief-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* FOUNDER */
+.founder-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  text-align: left;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.founder-img {
+  max-width: 200px;
+  border-radius: 10px;
+}
+
+/* CONTACT */
+#contact {
+  text-align: center;
+  padding: 4rem 10%;
+}
+
+#contact form {
+  max-width: 400px;
+  margin: 1.5rem auto 0 auto;
+}
+
+/* FOOTER */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0.6rem 0;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.socials a {
+  color: #d2b100;
+  font-size: 1.3rem;
+  transition: color 0.2s;
+}
+
+.socials a:hover {
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  .divider {
+    display: none;
+  }
+  .founder-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+}
