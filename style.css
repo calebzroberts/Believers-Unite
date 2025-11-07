@@ -286,3 +286,123 @@ footer p {
     text-align: center;
   }
 }
+
+/* ZIP SEARCH */
+.zip-search {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.zip-search input {
+  padding: 0.8rem;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: #3a2f2f;
+  border: 2px solid #d2b100;
+  margin-top: 1rem;
+}
+
+.btn.secondary:hover {
+  background-color: #d2b100;
+  color: #fff;
+}
+
+/* CHURCH GRID */
+.church-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.church-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.church-card:hover {
+  transform: translateY(-5px);
+}
+
+.church-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.church-card .info {
+  padding: 1rem;
+  text-align: left;
+}
+
+.church-card h3 {
+  color: #a81e1e;
+  margin-bottom: 0.3rem;
+}
+
+.placeholder {
+  font-style: italic;
+  color: #555;
+}
+
+/* FOUNDER SECTION - Black background style */
+.founder {
+  background-color: #000;
+  color: #fff;
+  padding: 4rem 10%;
+  text-align: left;
+}
+
+.founder h2 {
+  color: #d2b100;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.founder-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.founder-img {
+  flex: 0 0 250px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+.founder p {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f0f0f0;
+  text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .founder-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  .founder p {
+    text-align: center;
+  }
+}
