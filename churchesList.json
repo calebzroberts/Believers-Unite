@@ -1,0 +1,570 @@
+[
+  {
+    "Name": "Mission Church",
+    "Address": "651 Lampeter Road",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://mission-church.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Freedom Life Church - Atglen Campus",
+    "Address": "789 Gap Newport Pike",
+    "City": "Atglen",
+    "Zip": 19310,
+    "Website": "https://www.freedom.life/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Freedom Life Church - Centre Co Campus",
+    "Address": "113 Sunset Acres",
+    "City": "Bellefonte",
+    "Zip": 16823,
+    "Website": "https://www.freedom.life/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Freedom Life Church - Lancaster Co Campus",
+    "Address": "645 Kirkwood Pike",
+    "City": "Quarryville",
+    "Zip": 17566,
+    "Website": "https://www.freedom.life/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Petra Church",
+    "Address": "565 Airport Rd",
+    "City": "New Holland",
+    "Zip": 17557,
+    "Website": "https://petra.church/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Calvary Church",
+    "Address": "1051 Landis Valley Rd.",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://www.calvarychurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Westminster Presbyterian Church",
+    "Address": "2151 Oregon Pike",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://westpca.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Life in Christ Church",
+    "Address": "1027 Dillerville Road",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://licchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Altoona Community Gathering",
+    "Address": "3415 Pleasant Valley Blvd Suite 39",
+    "City": "Altoona",
+    "Zip": 16602,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Center Valley Community Gathering",
+    "Address": "2805 Center Valley Pkwy",
+    "City": "Center Valley",
+    "Zip": 18034,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Clarks Summit Campus",
+    "Address": "607 N Abington Rd",
+    "City": "Waverly Township",
+    "Zip": 18411,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Coal Township Community Gathering",
+    "Address": "9327 State Route 61",
+    "City": "Coal Township",
+    "Zip": 17866,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Columbia-Montour Campus",
+    "Address": "2421 Columbia Blvd",
+    "City": "Bloomsburg",
+    "Zip": 17815,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Dickson City Campus",
+    "Address": "933 Scranton Carbondale Hwy",
+    "City": "Scranton",
+    "Zip": 18508,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - East York Campus",
+    "Address": "951 N Hills Rd",
+    "City": "York",
+    "Zip": 17402,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Ephrata Campus",
+    "Address": "6 Hahnstown Rd",
+    "City": "Ephrata",
+    "Zip": 17522,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Hanover Campus",
+    "Address": "1504 Broadway",
+    "City": "Hanover",
+    "Zip": 17331,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Harleysville Campus",
+    "Address": "100 Main St",
+    "City": "Harleysville",
+    "Zip": 19438,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Harrisburg Campus",
+    "Address": "4150 Chambers Hill Rd",
+    "City": "Harrisburg",
+    "Zip": 17111,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Hazleton Campus",
+    "Address": "760 Airport Rd",
+    "City": "Hazle Township",
+    "Zip": 18202,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Lancaster City Campus",
+    "Address": "313 W Liberty St",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Lebanon Campus",
+    "Address": "925 Walnut St",
+    "City": "Lebanon",
+    "Zip": 17042,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Leesport Campus",
+    "Address": "130 Redners Way",
+    "City": "Leesport",
+    "Zip": 19533,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Manheim Campus",
+    "Address": "2392 Mount Joy Rd",
+    "City": "Manheim",
+    "Zip": 17545,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Northern Dauphin Community Gathering",
+    "Address": "4686 US Route 209",
+    "City": "Elizabethville",
+    "Zip": 17023,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Pottstown Community Gathering",
+    "Address": "750 N Washington St",
+    "City": "Pottstown",
+    "Zip": 19464,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Sinking Spring Campus",
+    "Address": "168 Shillington Road",
+    "City": "Sinking Spring",
+    "Zip": 19608,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Waynesboro Campus",
+    "Address": "13450 Midvale Rd",
+    "City": "Waynesboro",
+    "Zip": 17268,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - West Schuylkill Community Gathering",
+    "Address": "1152 W Mountain Rd",
+    "City": "Hegins",
+    "Zip": 17938,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - West Shore Campus",
+    "Address": "200 Lambs Gap Rd",
+    "City": "Mechanicsburg",
+    "Zip": 17050,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - West York Campus",
+    "Address": "907 Greenbriar Rd",
+    "City": "York",
+    "Zip": 17404,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Wilkes-Barre Campus",
+    "Address": "667 N River St",
+    "City": "Wilkes-Barre",
+    "Zip": 18705,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "LCBC - Willow Street Campus",
+    "Address": "100 E Cottage Ave",
+    "City": "Millersville",
+    "Zip": 17551,
+    "Website": "https://www.lcbcchurch.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Hope city church",
+    "Address": "921 Nissley Rd",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://hopecity.tv/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Victory church - Columbia Campus",
+    "Address": "550 Linden Street",
+    "City": "Columbia",
+    "Zip": 17512,
+    "Website": "https://victorychurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Victory church - Ephrata Campus",
+    "Address": "939 Linden Road",
+    "City": "Ephrata",
+    "Zip": 17522,
+    "Website": "https://victorychurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Victory church - Greenfield Campus",
+    "Address": "1827 Freedom Road, Suite 103",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://victorychurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Victory church - Lancaster City Campus",
+    "Address": "251 S Prince St",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://victorychurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Victory church - Lititz Campus",
+    "Address": "540 E. Newport Road",
+    "City": "Lititz",
+    "Zip": 17543,
+    "Website": "https://victorychurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Victory church - Mount Joy Campus",
+    "Address": "1475 Strickler Rd",
+    "City": "Mount Joy",
+    "Zip": 17552,
+    "Website": "https://victorychurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Victory church - Quarryville Campus",
+    "Address": "15 E 3rd Street",
+    "City": "Quarryville",
+    "Zip": 17566,
+    "Website": "https://victorychurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Worship Center",
+    "Address": "2384 New Holland Pike",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://www.worshipcenter.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Community Fellowship Church",
+    "Address": "200 Bethel Dr.",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://www.communityfellowship.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Grace Church Lancaster",
+    "Address": "911 Rohrerstown Rd",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://www.gracelanc.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Reality Church - Hempfield Campus",
+    "Address": "2301 Harrisburg Pike",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://www.pursuereality.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Reality Church - Lancaster City Campus",
+    "Address": "343 N Charlotte St.",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://www.pursuereality.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "One City Church Lancaster",
+    "Address": "935 E Walnut St",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://www.onecitychurchlancaster.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Lancaster Brethren in Christ Church",
+    "Address": "1865 Fruitville Pike",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://www.lancbic.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Harvest Bible Church",
+    "Address": "1460 Eden Rd",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://harvestbiblechurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Grace Baptist Church of Lancaster",
+    "Address": "1899 Marietta Avenue",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://gbclancaster.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Live With Purpose Church",
+    "Address": "3113 Main St., Suite A6",
+    "City": "Conestoga",
+    "Zip": 17516,
+    "Website": "https://www.livewithpurposechurch.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Crossway Church",
+    "Address": "330 Barbara Street",
+    "City": "Millersville",
+    "Zip": 17551,
+    "Website": "https://crosswaypa.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "CrossWay Church",
+    "Address": "85 Chateau Dr",
+    "City": "Mohnton",
+    "Zip": 19540,
+    "Website": "https://www.crosswayberks.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Lancaster Alliance Church",
+    "Address": "210 Pitney Road",
+    "City": "Lancaster",
+    "Zip": 17601,
+    "Website": "https://www.lancastercma.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Holy Trinity Lutheran Church",
+    "Address": "31 South Duke Street",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://trinitylancaster.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Calvary Chapel of Lancaster",
+    "Address": "130 Tennyson Dr.",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://cclancaster.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Chestnut Hill Church",
+    "Address": "344 W Chestnut Street",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://www.chestnuthill.church/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Passionate Church",
+    "Address": "160 School House Rd",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://www.passionate.church/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Lord’s House of Prayer Lancaster",
+    "Address": "133 East Vine Street",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://lhop.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Legacy Church",
+    "Address": "415 S Shippen St",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://welovelegacy.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "First Presbyterian Church Lancaster",
+    "Address": "140 East Orange Street",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://www.fpclancasterpa.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Bethel African Methodist Episcopal Church",
+    "Address": "450 E. Strawberry St.",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://bethelamelancaster.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Ebenezer Baptist Church",
+    "Address": "701 North Lime Street",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://www.ebclancaster.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Lancaster First Assembly of God",
+    "Address": "1025 Columbia Ave",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://www.lancasterfirst.net/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Church of the Word International",
+    "Address": "2124 Old Philadelphia Pike",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://churchoftheword.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Calvary Baptist Church",
+    "Address": "530 Milton Road",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://cbclancaster.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Grace Church at Willow Valley",
+    "Address": "300 Willow Valley Square",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://gracewv.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Conestoga Valley Church of Christ",
+    "Address": "2045 Horseshoe Rd.",
+    "City": "Lancaster",
+    "Zip": 17602,
+    "Website": "https://cvchurchofchrist.org/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Living Hope Community Church",
+    "Address": "2823 Columbia Ave.",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://explorelivinghope.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "Ignite Church of Lancaster",
+    "Address": "540 S. Queen St.",
+    "City": "Lancaster",
+    "Zip": 17603,
+    "Website": "https://www.ignitechurchoflancasterpa.com/",
+    "Mapslink": "View on Map"
+  },
+  {
+    "Name": "",
+    "Address": "",
+    "City": "",
+    "Zip": "",
+    "Website": "",
+    "Mapslink": "View on Map"
+  }
+]

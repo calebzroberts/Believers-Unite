@@ -406,3 +406,14 @@ footer p {
     text-align: center;
   }
 }
+
+.church-links {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.church-links .btn {
+  flex: 1;
+  text-align: center;
+}
