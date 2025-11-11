@@ -8,10 +8,34 @@
   <script defer src="script.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="shortcut icon" href="Images/logo-final-icon.png" type="image/x-icon">
+
+  <!--Leaflet code for map-->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script
+    defer
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  ></script>
+
+  <!-- MarkerCluster plugin -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
+  <script
+    defer
+    src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+  ></script>
 </head>
 <body>
   <header>
-    <h1><span>Believers</span> <strong>UNITE!</strong></h1>
+    <img id="headerLogo" src="Images/logo-final-wide-cropped.png" alt="Believers Unite Logo">
     <nav>
       <ul>
         <li><a href="#home">HOME</a></li>
@@ -26,15 +50,17 @@
   <section class="hero" id="home">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h2>Find and Connect with Local Churches<br>in Your Area</h2>
+      <h2>Find a Bible-believing Church. Get Involved. Unite in Faith.</h2>
+      <h3>Find and Connect with Local Churches in the Lancaster, PA Area</h3>
 
       <!-- ZIP SEARCH BOX -->
-      <div class="zip-search">
-        <input type="text" id="zipcode" placeholder="Enter your ZIP code">
-        <button class="btn" onclick="searchChurches()">Search</button>
+      <div class="search-controls">
+        <input type="text" id="searchInput" placeholder="Enter city, ZIP, or address">
+        <input type="number" id="radiusInput" placeholder="Radius (miles)" value="10" min="1" max="100" step="1">
+        <button id="locateBtn" class="btn secondary">Use My Location</button>
+        <button id="searchBtn" class="btn">Search</button>
       </div>
 
-      <a href="#get-involved" class="btn secondary">GET STARTED</a>
     </div>
   </section>
 
@@ -43,16 +69,19 @@
     <h2>Church <span class="highlight">Search Results</span></h2>
     <p class="scripture"><em>“How good and pleasant it is when God’s people live together in unity!” – Psalm 133:1</em></p>
 
-    <div id="churchResults" class="church-grid">
-      <p class="placeholder">Search above to find churches near you.</p>
+    <div id="mapAndResults">
+      <div id="map" style="height: 400px; margin-bottom: 16px;"></div>
+      <div id="churchResults" class="church-grid">
+        <p class="placeholder">Search above to find churches near you.</p>
+      </div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="gold-section">
     <h2>Bringing the Church Together<br>One Believer at a Time</h2>
-    <p>The goal of Believers Unite is to bring together Churches and Believers in Jesus through one unified service that facilitates in-person connection.</p>
-    <p class="mission"><strong>Our Mission:</strong> Unite believers and Bible-believing Churches under Christ, providing a way for individuals to get connected in their community and grow their faith.</p>
+    <p>Believers Unite exists to help all believers in Christ find and get involved in a sound, Bible-believing church in his or her area.</p>
+    <p class="mission"><strong>Our Mission:</strong> Bring together the Body of Christ, helping every believer to get involved in the Christian community and grow in faith.</p>
   </section>
 
   <!-- FOUNDER -->

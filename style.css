@@ -7,6 +7,10 @@
   font-family: "Lexend", Arial, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*GENERAL STYLING*/
 h1, h2, h3, h4, h5, h6, .highlight {
   font-family: "Protest Strike", Arial, Helvetica, sans-serif;
@@ -24,6 +28,12 @@ header h1 {
   font-size: 1.8rem;
   padding: 1rem 0 0.5rem;
   color: #222;
+}
+
+#headerLogo {
+  width: 60vh;
+  margin: 1rem 1rem .5rem 1rem;
+  padding: 0;
 }
 
 header h1 strong {
@@ -84,23 +94,79 @@ nav a:hover {
   margin-bottom: 2rem;
 }
 
-/* BUTTON */
+/* Map + results container */
+#mapAndResults {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Make sure map fills width on small screens */
+#map {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+#mapControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+
+/* church card layout */
+.church-card {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 12px;
+}
+
+/* vertical stacked buttons */
+.church-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* BUTTONS */
 .btn {
   display: inline-block;
   background-color: #d2b100;
+
+  border: 2px solid #d2b100;
   color: #fff;
-  font-weight: bold;
-  text-decoration: none;
   padding: 0.9rem 1.8rem;
   border-radius: 50px;
-  transition: background 0.3s;
-  letter-spacing: 1px;
-  border: none;
+  transition: all 0.3s;
   cursor: pointer;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .btn:hover {
-  background-color: #b99b00;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #3a2f2f;
+  border: 2px solid #d2b100;
+}
+
+.btn.secondary {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #3a2f2f;
+  border: 2px solid #d2b100;
+}
+
+.btn.secondary:hover {
+  background-color: #d2b100;
+  color: #fff;
 }
 
 /* GET INVOLVED */
@@ -287,32 +353,32 @@ footer p {
   }
 }
 
-/* ZIP SEARCH */
-.zip-search {
+
+.search-controls {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   margin-bottom: 1rem;
 }
 
-.zip-search input {
+.search-controls input {
   padding: 0.8rem;
-  width: 200px;
-  border: 1px solid #ccc;
   border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
-.btn.secondary {
-  background-color: transparent;
-  color: #3a2f2f;
-  border: 2px solid #d2b100;
-  margin-top: 1rem;
+.search-controls input[type="text"] {
+  width: 220px;
 }
 
-.btn.secondary:hover {
-  background-color: #d2b100;
-  color: #fff;
+.search-controls input[type="number"] {
+  width: 120px;
 }
+
+
 
 /* CHURCH GRID */
 .church-grid {
@@ -405,15 +471,4 @@ footer p {
   .founder p {
     text-align: center;
   }
-}
-
-.church-links {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.8rem;
-}
-
-.church-links .btn {
-  flex: 1;
-  text-align: center;
 }
