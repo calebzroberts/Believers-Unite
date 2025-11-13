@@ -35,102 +35,152 @@
 </head>
 <body>
   <header>
-    <img id="headerLogo" src="Images/logo-final-wide-cropped.png" alt="Believers Unite Logo">
+    <div class="row">
+      <img id="headerLogo" src="Images/logo-final-wide-cropped.png" alt="Believers Unite Logo">
+    </div>
     <nav>
-      <ul>
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#get-involved">SEARCH</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-      </ul>
+      <div class="row">
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#get-involved">SEARCH</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h2>Find a Bible-believing Church. Get Involved. Unite in Faith.</h2>
-      <h3>Find and Connect with Local Churches in the Lancaster, PA Area</h3>
+    <div class="row">
 
-      <!-- ZIP SEARCH BOX -->
-      <div class="search-controls">
-        <input type="text" id="searchInput" placeholder="Enter city, ZIP, or address">
-        <input type="number" id="radiusInput" placeholder="Radius (miles)" value="10" min="1" max="100" step="1">
-        <button id="locateBtn" class="btn secondary">Use My Location</button>
-        <button id="searchBtn" class="btn">Search</button>
+      
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h2>
+          Find a <span class="highlight">Bible-believing</span> Church. 
+          Get <span class="highlight">Involved</span>. 
+          <span class="highlight">Unite</span> in Faith.
+        </h2>
+        <h3>Find and Connect with Local Churches in the Lancaster, PA Area</h3>
+
+        <!-- ZIP SEARCH BOX -->
+        <div class="search-controls">
+          <input type="text" id="searchInput" placeholder="Enter city, ZIP, or address">
+          <input type="number" id="radiusInput" placeholder="Radius (miles)" value="10" min="1" max="100" step="1">
+          <button id="locateBtn" class="btn secondary">Use My Location</button>
+          <button id="searchBtn" class="btn">Search</button>
+        </div>
+
       </div>
-
     </div>
   </section>
 
   <!-- CHURCH SEARCH RESULTS -->
   <section id="get-involved">
-    <h2>Church <span class="highlight">Search Results</span></h2>
-    <p class="scripture"><em>“How good and pleasant it is when God’s people live together in unity!” – Psalm 133:1</em></p>
+    <div class="row">
+      <h2>Church <span class="highlight">Search Results</span></h2>
+      <p class="scripture"><em>“How good and pleasant it is when God’s people live together in unity!” – Psalm 133:1</em></p>
 
-    <div id="mapAndResults">
-      <div id="map" style="height: 400px; margin-bottom: 16px;"></div>
-      <div id="churchResults" class="church-grid">
-        <p class="placeholder">Search above to find churches near you.</p>
+      <div id="mapAndResults">
+        <div id="map" style="height: 400px; margin-bottom: 16px;"></div>
+        <div id="churchResults" class="church-grid">
+          <p class="placeholder">Search above to find churches near you.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT-->
   <section id="about" class="gold-section">
-    <h2>Bringing the Church Together<br>One Believer at a Time</h2>
-    <p>Believers Unite exists to help all believers in Christ find and get involved in a sound, Bible-believing church in his or her area.</p>
-    <p class="mission"><strong>Our Mission:</strong> Bring together the Body of Christ, helping every believer to get involved in the Christian community and grow in faith.</p>
+    <div class="row">
+      <h2>Bringing the Church Together<br><span class="highlight">One Believer at a Time</span></h2>
+      <p>Believers Unite exists to help all believers in Christ find and get involved in a sound, Bible-believing church in his or her area.</p>
+      <h2 class="mission">Our Mission Is <span class="highlight">Clear</span></h2>
+      <p>Bring together the Body of Christ, helping every believer to get involved in the Christian community and grow in faith.</p>
+  
+    </div>
+  </section>
+
+  <!-- CORE BELIEFS Section -->
+  <section class="beliefs-section" style="background-image:url('Images/Church-building.webp');">
+    <div class="overlay"></div>
+
+    <div class="beliefs-content">
+      <h2>Our <span class="highlight">Core</span> Beliefs</h2>
+
+      <div class="belief-grid">
+        <div class="belief-card">God is 3 in 1 — The Father, Son, and Holy Spirit</div>
+        <div class="belief-card">There is only One True God</div>
+        <div class="belief-card">Jesus Christ is Lord and the only path to Salvation</div>
+        <div class="belief-card">All believers are made new through Christ</div>
+        <div class="belief-card">The Bible is the true and infallible Word of God</div>
+        <div class="belief-card">We have been saved by grace through faith</div>
+      </div>
+    </div>
   </section>
 
   <!-- FOUNDER -->
-  <section id="founder" class="gold-section founder">
-    <h2>Meet Caleb, The Founder</h2>
-    <div class="founder-flex">
-      <img src="Images/headshot.webp" alt="Founder headshot" class="founder-img">
+  <section id="founder" class="founder">
+    <div class="row">
+      <h2>Meet Caleb, The Founder</h2>
+      <div class="founder-flex">
+        <img src="Images/headshot.webp" alt="Founder headshot" class="founder-img">
+        <p>
+          The Spirit of God has been moving and continues to move throughout the Nation and the 
+          World in unparalleled ways. This, however, does <strong>not</strong> mean the Church is free of 
+          persecution, encroachment of directly opposing religions, or even slaughter. 
+          <br>
+          <br>
+          What does this mean for us? The <strong>last thing</strong> we need is internal strife in the 
+          Church. (1 Corinthians 1:10) It is time for us to <strong>unite</strong> as Christians 
+          <strong>under Christ</strong>, sticking to sound doctrine: that <strong>Jesus is Lord</strong>
+          (John 10:30-38), God is <strong>one God</strong> with 
+          <strong>three persons</strong> (1 John 5:7), salvation is <strong>by grace through faith</strong>
+          in Christ <strong>alone</strong> (John 14:6), and the Bible is <strong>inerrant</strong>
+          and <strong>infallible</strong> (2 Timothy 3:16). 
+        </p>
+      </div>
       <p>
-        The Spirit of God has been moving and continues to move throughout the Nation and the 
-        World in unparalleled ways. This, however, does <strong>not</strong> mean the Church is free of 
-        persecution, encroachment of directly opposing religions, or even slaughter. 
-        What does this mean for us? The <strong>last thing</strong> we need is internal strife in the 
-        Church. (1 Corinthians 1:10) It is time for us to <strong>unite</strong> as Christians 
-        <strong>under Christ</strong>, sticking to sound doctrine: that <strong>Jesus is Lord</strong>
-         (John 10:30-38), God is <strong>one God</strong> with 
-        <strong>three persons</strong> (1 John 5:7), salvation is <strong>by grace through faith</strong>
-        in Christ <strong>alone</strong> (John 14:6), and the Bible is <strong>inerrant</strong>
-        and <strong>infallible</strong> (2 Timothy 3:16). Knowing 
-        there are so many Christians across the globe who believe these things but may 
+        <br>
+        Knowing there are so many Christians across the globe who believe these things but may 
         disagree on secondary issues, I sought out to unite true believers in Christ 
         and Bible-believing Churches so we can work together to <strong>advance</strong> the knowledge 
         of the Gospel of Jesus Christ(Matthew 28:19-20) and <strong>combat</strong> the spiritual forces 
         of evil in this dark world (Ephesians 6:12). And by God’s grace, this vision 
         and project has gotten to this point today.
       </p>
+        
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <h2>Contact Us</h2>
-    <p>If you have questions, comments, or want to get more involved, don’t hesitate to reach out!</p>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" rows="5" required></textarea>
-      <button type="submit" class="btn">Send</button>
-    </form>
+    <div class="row">
+      <h2>Contact Us</h2>
+      <p>If you have questions, comments, or want to get more involved, don’t hesitate to reach out!</p>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
+      
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>ALL IN THE NAME OF THE LORD JESUS.</p>
-    <div class="socials">
-      <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <div class="row">
+      <p>ALL IN THE NAME OF THE LORD JESUS.</p>
+      <div class="socials">
+        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+      <p>©2025 Believers Unite</p>
+
     </div>
-    <p>©2025 Believers Unite</p>
   </footer>
 </body>
 </html>

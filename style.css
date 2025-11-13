@@ -17,6 +17,16 @@ h1, h2, h3, h4, h5, h6, .highlight {
   letter-spacing: 0.1rem;
 }
 
+h2 {
+  font-size: 2rem;
+  color:#000;
+}
+
+.row {
+  max-width: 1000px;
+  margin: auto;
+}
+
 /* HEADER */
 header {
   background-color: #fff;
@@ -94,6 +104,10 @@ nav a:hover {
   margin-bottom: 2rem;
 }
 
+.hero-content h3 {
+  margin: 1rem;
+}
+
 /* Map + results container */
 #mapAndResults {
   display: flex;
@@ -169,13 +183,19 @@ nav a:hover {
   color: #fff;
 }
 
+/*ABOUT*/
+.mission {
+  margin-top: 5rem;
+}
+
+
 /* GET INVOLVED */
 #get-involved {
   text-align: center;
   padding: 4rem 10%;
 }
 
-#get-involved .highlight {
+.highlight {
   color: #a81e1e;
 }
 
@@ -231,6 +251,7 @@ textarea {
   max-width: 700px;
   margin: 0.5rem auto;
   line-height: 1.6;
+  color:white;
 }
 
 /* BELIEFS */
@@ -284,13 +305,12 @@ textarea {
   flex-wrap: wrap;
   margin-top: 2rem;
   text-align: left;
-  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .founder-img {
-  max-width: 200px;
+  max-width: 30%;
   border-radius: 10px;
 }
 
