@@ -5,7 +5,9 @@ const EARTH_RADIUS_MILES = 3958.8;
 
 let map, markerClusterGroup;
 let churchesCache = [];
-let userLocation = null;
+let baseLocation = null; 
+let usingMyLocation = false; // track whether radius mode is active
+
 
 // ---------- UTILITIES ----------
 function distanceMiles(lat1, lon1, lat2, lon2) {
@@ -37,35 +39,34 @@ function buildGoogleMapsUrl(ch) {
   const q = encodeURIComponent(`${ch.name} ${ch.address} ${ch.city}`);
   return `https://www.google.com/maps/search/?api=1&query=${q}`;
 }
-// --------------------------------
 
-// ---------- MAP SETUP ----------
+
+// ---------- MAP INIT ----------
 function initMap() {
   map = L.map("map", { center: [40.0, -76.6], zoom: 9 });
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
-      '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+      '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
   }).addTo(map);
 
   markerClusterGroup = L.markerClusterGroup();
   map.addLayer(markerClusterGroup);
 }
-// --------------------------------
 
-// ---------- DATA ----------
+
+// ---------- LOAD DATA ----------
 async function fetchChurches() {
   try {
     const res = await fetch(JSON_URL);
-    if (!res.ok) throw new Error("Failed to load churchesList.json");
     return await res.json();
   } catch (err) {
     console.error(err);
     return [];
   }
 }
-// --------------------------------
 
-// ---------- DISPLAY ----------
+
+// ---------- RENDER ----------
 function clearMarkers() {
   markerClusterGroup.clearLayers();
 }
@@ -94,30 +95,15 @@ function displayResults(results) {
   clearMarkers();
 
   if (results.length === 0) {
-    container.innerHTML =
-      "<p class='placeholder'>No churches found for that ZIP code.</p>";
+    container.innerHTML = "<p class='placeholder'>No churches found.</p>";
     return;
   }
 
-  const radius = Number(document.getElementById("radiusInput").value) || Infinity;
   const bounds = [];
-  const visible = [];
 
   results.forEach(ch => {
     if (!ch.latitude || !ch.longitude) return;
 
-    // Filter by radius if user location is set
-    if (userLocation) {
-      const dist = distanceMiles(
-        userLocation.lat,
-        userLocation.lon,
-        ch.latitude,
-        ch.longitude
-      );
-      if (dist > radius) return;
-    }
-
-    // Add card
     const card = document.createElement("div");
     card.classList.add("church-card");
     card.innerHTML = `
@@ -131,26 +117,40 @@ function displayResults(results) {
       </div>
     `;
     container.appendChild(card);
-
     addMarker(ch);
     bounds.push([ch.latitude, ch.longitude]);
-    visible.push(ch);
   });
 
   if (bounds.length > 0) {
     map.fitBounds(bounds, { padding: [30, 30] });
   }
+}
 
-  if (visible.length === 0) {
-    container.innerHTML =
-      "<p class='placeholder'>No churches found within that radius.</p>";
+async function geocodeQuery(query) {
+  try {
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`
+    );
+    const json = await res.json();
+    if (json.length === 0) return null;
+
+    return {
+      lat: parseFloat(json[0].lat),
+      lon: parseFloat(json[0].lon)
+    };
+  } catch (e) {
+    console.error("Geocoding failed:", e);
+    return null;
   }
 }
-// --------------------------------
 
+
+
+// ---------- SEARCH ----------
 async function searchChurches() {
-  const query = document.getElementById("searchInput").value.trim().toLowerCase();
+  const query = document.getElementById("searchInput").value.trim();
   const radius = Number(document.getElementById("radiusInput").value) || Infinity;
+
   const container = document.getElementById("churchResults");
   container.innerHTML = "<p class='placeholder'>Loading...</p>";
 
@@ -158,35 +158,86 @@ async function searchChurches() {
     churchesCache = await fetchChurches();
   }
 
-  let results = [];
+  // Determine user base location:
 
-  // If user location set, base radius filter off that location
-  if (userLocation) {
-    results = churchesCache.filter(ch => {
-      if (!ch.latitude || !ch.longitude) return false;
-      const dist = distanceMiles(
-        userLocation.lat,
-        userLocation.lon,
-        ch.latitude,
-        ch.longitude
-      );
-      return dist <= radius;
-    });
-  } else if (query) {
-    results = churchesCache.filter(ch => {
-      const combined = `${ch.name} ${ch.address} ${ch.city} ${ch.zip}`.toLowerCase();
-      return combined.includes(query);
-    });
+  let locationPoint = null;
+
+  if (usingMyLocation && baseLocation) {
+    locationPoint = baseLocation;
+  } else if (query.length > 0) {
+    // geocode the user’s input
+    const geo = await geocodeQuery(query);
+    if (!geo) {
+      displayResults([]);
+      return;
+    }
+    locationPoint = geo;
+    baseLocation = geo; // save it
+  } else {
+    displayResults([]);
+    return;
   }
+
+  // Now do real radius filtering
+  const results = churchesCache.filter(ch => {
+    if (!ch.latitude || !ch.longitude) return false;
+    const dist = distanceMiles(locationPoint.lat, locationPoint.lon, ch.latitude, ch.longitude);
+    return dist <= radius;
+  });
 
   displayResults(results);
 
-  // Scroll to results
   document.getElementById("get-involved").scrollIntoView({ behavior: "smooth" });
 }
 
+
+
+// ---------- LOCATION BUTTON ----------
+// reverse geocode helper (Nominatim)
+async function reverseGeocode(lat, lon) {
+  try {
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&addressdetails=1`
+    );
+    if (!res.ok) return null;
+
+    const data = await res.json();
+    const a = data.address || {};
+
+    const zip = a.postcode || null;
+    const town =
+      a.city ||
+      a.town ||
+      a.village ||
+      a.hamlet ||
+      a.suburb ||
+      null;
+    const state = a.state || null;
+
+    // Priority:
+    // 1. ZIP (best for your dataset)
+    // 2. town,state (if ZIP missing)
+    if (zip) {
+      return zip;
+    }
+    if (town && state) {
+      return `${town}, ${state}`;
+    }
+
+    return null;
+
+  } catch (e) {
+    console.error("Reverse geocode error:", e);
+    return null;
+  }
+}
+
+
+
 function setupLocateButton() {
-  const btn = document.getElementById("locateBtn");
+  const btn = document.getElementById("useLocationBtn");
+  if (!btn) return;
+
   btn.addEventListener("click", () => {
     if (!navigator.geolocation) {
       alert("Geolocation not supported.");
@@ -194,36 +245,61 @@ function setupLocateButton() {
     }
 
     btn.disabled = true;
-    btn.textContent = "Locating…";
+    btn.innerHTML = "Locating…";
 
     navigator.geolocation.getCurrentPosition(
-      pos => {
-        userLocation = { lat: pos.coords.latitude, lon: pos.coords.longitude };
-        btn.textContent = "Location set";
+      // SUCCESS (async allowed)
+      async (pos) => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+
+        baseLocation = { lat, lon };
+        usingMyLocation = true;
+
+        // reverse geocode into readable address (fallback to coords)
+        const address = await reverseGeocode(lat, lon);
+        document.getElementById("searchInput").value =
+          address || `${lat.toFixed(5)}, ${lon.toFixed(5)}`;
+
+        // restore button text (keeps location mode enabled)
+        btn.innerHTML = '<i class="fas fa-location-crosshairs"></i>';
         btn.disabled = false;
-        console.log("Your location has been set. You can now search by radius.");
       },
-      err => {
-        console.warn(err);
-        alert("Unable to retrieve your location.");
-        btn.textContent = "Use My Location";
+
+      // ERROR
+      (err) => {
+        console.warn("Geolocation error:", err);
+        alert("Unable to retrieve location.");
+        btn.innerHTML = '<i class="fas fa-location-crosshairs"></i>';
         btn.disabled = false;
       },
-      { enableHighAccuracy: true, timeout: 10000 }
+
+      // OPTIONS
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
   });
 }
 
-// Hook up button listeners
+
+// ---------- INIT ----------
 document.addEventListener("DOMContentLoaded", async () => {
   initMap();
   setupLocateButton();
   churchesCache = await fetchChurches();
 
-  document.getElementById("searchBtn").addEventListener("click", searchChurches);
+  document.getElementById("searchBtn").addEventListener("click", () => {
+    usingMyLocation = document.getElementById("searchInput").value === "My Location";
+    searchChurches();
+  });
+
+  document.getElementById("searchInput").addEventListener("input", () => {
+    usingMyLocation = false; // Always disable location when typing
+  });
+
   document.getElementById("searchInput").addEventListener("keypress", e => {
     if (e.key === "Enter") {
       e.preventDefault();
+      usingMyLocation = document.getElementById("searchInput").value === "My Location";
       searchChurches();
     }
   });
