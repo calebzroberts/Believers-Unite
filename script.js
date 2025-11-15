@@ -1,15 +1,20 @@
-// ---------- CONFIG ----------
+// ----------------------------------------------------
+// CONFIG
+// ----------------------------------------------------
 const JSON_URL = "churchesList.json";
 const EARTH_RADIUS_MILES = 3958.8;
-// -----------------------------
 
 let map, markerClusterGroup;
 let churchesCache = [];
-let baseLocation = null; 
-let usingMyLocation = false; // track whether radius mode is active
+let baseLocation = null;
+let usingMyLocation = false;
+
+const placeholderText = document.getElementById("placeholder");
 
 
-// ---------- UTILITIES ----------
+// ----------------------------------------------------
+// UTILITIES
+// ----------------------------------------------------
 function distanceMiles(lat1, lon1, lat2, lon2) {
   const toRad = x => (x * Math.PI) / 180;
   const dLat = toRad(lat2 - lat1);
@@ -41,7 +46,9 @@ function buildGoogleMapsUrl(ch) {
 }
 
 
-// ---------- MAP INIT ----------
+// ----------------------------------------------------
+// MAP INITIALIZATION
+// ----------------------------------------------------
 function initMap() {
   map = L.map("map", { center: [40.0, -76.6], zoom: 9 });
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -54,7 +61,9 @@ function initMap() {
 }
 
 
-// ---------- LOAD DATA ----------
+// ----------------------------------------------------
+// DATA LOADING
+// ----------------------------------------------------
 async function fetchChurches() {
   try {
     const res = await fetch(JSON_URL);
@@ -66,7 +75,9 @@ async function fetchChurches() {
 }
 
 
-// ---------- RENDER ----------
+// ----------------------------------------------------
+// MAP MARKERS + RESULTS RENDERING
+// ----------------------------------------------------
 function clearMarkers() {
   markerClusterGroup.clearLayers();
 }
@@ -95,7 +106,7 @@ function displayResults(results) {
   clearMarkers();
 
   if (results.length === 0) {
-    container.innerHTML = "<p class='placeholder'>No churches found.</p>";
+    placeholderText.innerText = "No churches found.";
     return;
   }
 
@@ -110,13 +121,15 @@ function displayResults(results) {
       <div class="info">
         <h3>${escapeHtml(ch.name)}</h3>
         <p><strong>Address:</strong> ${escapeHtml(ch.address)}, ${escapeHtml(ch.city)}, ${escapeHtml(ch.zip)}</p>
-        <div class="church-links">
-          <a class="btn" href="${escapeAttr(ch.website)}" target="_blank">Website</a>
-          <a class="btn maps-btn" href="${escapeAttr(buildGoogleMapsUrl(ch))}" target="_blank">View on Maps</a>
-        </div>
+      </div>
+
+      <div class="church-links">
+        <a class="btn" href="${escapeAttr(ch.website)}" target="_blank">Website</a>
+        <a class="btn maps-btn" href="${escapeAttr(buildGoogleMapsUrl(ch))}" target="_blank">View on Maps</a>
       </div>
     `;
     container.appendChild(card);
+
     addMarker(ch);
     bounds.push([ch.latitude, ch.longitude]);
   });
@@ -124,8 +137,14 @@ function displayResults(results) {
   if (bounds.length > 0) {
     map.fitBounds(bounds, { padding: [30, 30] });
   }
+
+  placeholderText.innerText = `${results.length} churches found.`;
 }
 
+
+// ----------------------------------------------------
+// GEOCODING
+// ----------------------------------------------------
 async function geocodeQuery(query) {
   try {
     const res = await fetch(
@@ -144,56 +163,6 @@ async function geocodeQuery(query) {
   }
 }
 
-
-
-// ---------- SEARCH ----------
-async function searchChurches() {
-  const query = document.getElementById("searchInput").value.trim();
-  const radius = Number(document.getElementById("radiusInput").value) || Infinity;
-
-  const container = document.getElementById("churchResults");
-  container.innerHTML = "<p class='placeholder'>Loading...</p>";
-
-  if (churchesCache.length === 0) {
-    churchesCache = await fetchChurches();
-  }
-
-  // Determine user base location:
-
-  let locationPoint = null;
-
-  if (usingMyLocation && baseLocation) {
-    locationPoint = baseLocation;
-  } else if (query.length > 0) {
-    // geocode the user’s input
-    const geo = await geocodeQuery(query);
-    if (!geo) {
-      displayResults([]);
-      return;
-    }
-    locationPoint = geo;
-    baseLocation = geo; // save it
-  } else {
-    displayResults([]);
-    return;
-  }
-
-  // Now do real radius filtering
-  const results = churchesCache.filter(ch => {
-    if (!ch.latitude || !ch.longitude) return false;
-    const dist = distanceMiles(locationPoint.lat, locationPoint.lon, ch.latitude, ch.longitude);
-    return dist <= radius;
-  });
-
-  displayResults(results);
-
-  document.getElementById("get-involved").scrollIntoView({ behavior: "smooth" });
-}
-
-
-
-// ---------- LOCATION BUTTON ----------
-// reverse geocode helper (Nominatim)
 async function reverseGeocode(lat, lon) {
   try {
     const res = await fetch(
@@ -206,26 +175,13 @@ async function reverseGeocode(lat, lon) {
 
     const zip = a.postcode || null;
     const town =
-      a.city ||
-      a.town ||
-      a.village ||
-      a.hamlet ||
-      a.suburb ||
-      null;
+      a.city || a.town || a.village || a.hamlet || a.suburb || null;
     const state = a.state || null;
 
-    // Priority:
-    // 1. ZIP (best for your dataset)
-    // 2. town,state (if ZIP missing)
-    if (zip) {
-      return zip;
-    }
-    if (town && state) {
-      return `${town}, ${state}`;
-    }
+    if (zip) return zip;
+    if (town && state) return `${town}, ${state}`;
 
     return null;
-
   } catch (e) {
     console.error("Reverse geocode error:", e);
     return null;
@@ -233,73 +189,156 @@ async function reverseGeocode(lat, lon) {
 }
 
 
+// ----------------------------------------------------
+// LOCATION BUTTONS (top + map)
+// ----------------------------------------------------
+function setupLocateButtons() {
+  const buttons = [
+    { id: "useLocationBtn", target: "searchInput" },
+    { id: "mapUseLocationBtn", target: "mapSearchInput" }
+  ];
 
-function setupLocateButton() {
-  const btn = document.getElementById("useLocationBtn");
-  if (!btn) return;
+  buttons.forEach(cfg => {
+    const btn = document.getElementById(cfg.id);
+    if (!btn) return;
 
-  btn.addEventListener("click", () => {
-    if (!navigator.geolocation) {
-      alert("Geolocation not supported.");
-      return;
-    }
+    btn.addEventListener("click", () => {
+      if (!navigator.geolocation) {
+        alert("Geolocation not supported.");
+        return;
+      }
 
-    btn.disabled = true;
-    btn.innerHTML = "Locating…";
+      btn.disabled = true;
+      btn.innerHTML = "<i class='fas fa-spinner fa-spin'></i>";
 
-    navigator.geolocation.getCurrentPosition(
-      // SUCCESS (async allowed)
-      async (pos) => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
+      navigator.geolocation.getCurrentPosition(
+        async pos => {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
 
-        baseLocation = { lat, lon };
-        usingMyLocation = true;
+          baseLocation = { lat, lon };
+          usingMyLocation = true;
 
-        // reverse geocode into readable address (fallback to coords)
-        const address = await reverseGeocode(lat, lon);
-        document.getElementById("searchInput").value =
-          address || `${lat.toFixed(5)}, ${lon.toFixed(5)}`;
+          const address = await reverseGeocode(lat, lon);
 
-        // restore button text (keeps location mode enabled)
-        btn.innerHTML = '<i class="fas fa-location-crosshairs"></i>';
-        btn.disabled = false;
-      },
+          // Update BOTH bars
+          document.getElementById("searchInput").value = address || "";
+          document.getElementById("mapSearchInput").value = address || "";
 
-      // ERROR
-      (err) => {
-        console.warn("Geolocation error:", err);
-        alert("Unable to retrieve location.");
-        btn.innerHTML = '<i class="fas fa-location-crosshairs"></i>';
-        btn.disabled = false;
-      },
+          btn.innerHTML = '<i class="fas fa-location-crosshairs"></i>';
+          btn.disabled = false;
+        },
 
-      // OPTIONS
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-    );
+        err => {
+          console.error("Geolocation error:", err);
+          alert("Unable to retrieve location.");
+          btn.innerHTML = '<i class="fas fa-location-crosshairs"></i>';
+          btn.disabled = false;
+        },
+
+        { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
+      );
+    });
   });
 }
 
 
-// ---------- INIT ----------
+// ----------------------------------------------------
+// MAIN SEARCH FUNCTION
+// ----------------------------------------------------
+async function searchChurches() {
+  const query = document.getElementById("searchInput").value.trim();
+  const radius = Number(document.getElementById("radiusInput").value) || Infinity;
+
+  const container = document.getElementById("churchResults");
+  container.innerHTML = "<p class='placeholder'>Loading...</p>";
+
+  if (churchesCache.length === 0) {
+    churchesCache = await fetchChurches();
+  }
+
+  let locationPoint = null;
+
+  if (usingMyLocation && baseLocation) {
+    locationPoint = baseLocation;
+  } else if (query.length > 0) {
+    const geo = await geocodeQuery(query);
+    if (!geo) {
+      displayResults([]);
+      return;
+    }
+    locationPoint = geo;
+    baseLocation = geo;
+  } else {
+    displayResults([]);
+    return;
+  }
+
+  const results = churchesCache.filter(ch => {
+    if (!ch.latitude || !ch.longitude) return false;
+    const dist = distanceMiles(locationPoint.lat, locationPoint.lon, ch.latitude, ch.longitude);
+    return dist <= radius;
+  });
+
+  displayResults(results);
+
+  document.getElementById("get-involved").scrollIntoView({ behavior: "smooth" });
+}
+
+
+// ----------------------------------------------------
+// INITIALIZATION
+// ----------------------------------------------------
 document.addEventListener("DOMContentLoaded", async () => {
   initMap();
-  setupLocateButton();
+  setupLocateButtons();
   churchesCache = await fetchChurches();
 
+  // Search buttons
   document.getElementById("searchBtn").addEventListener("click", () => {
-    usingMyLocation = document.getElementById("searchInput").value === "My Location";
+    usingMyLocation = false;
     searchChurches();
   });
 
-  document.getElementById("searchInput").addEventListener("input", () => {
-    usingMyLocation = false; // Always disable location when typing
+  document.getElementById("mapSearchBtn").addEventListener("click", () => {
+    usingMyLocation = false;
+    // copy map → hero values before searching
+    document.getElementById("searchInput").value =
+      document.getElementById("mapSearchInput").value;
+    document.getElementById("radiusInput").value =
+      document.getElementById("mapRadiusInput").value;
+    searchChurches();
   });
 
+  // Sync hero → map
+  document.getElementById("searchInput").addEventListener("input", () => {
+    document.getElementById("mapSearchInput").value =
+      document.getElementById("searchInput").value;
+    usingMyLocation = false;
+  });
+
+  document.getElementById("radiusInput").addEventListener("input", () => {
+    document.getElementById("mapRadiusInput").value =
+      document.getElementById("radiusInput").value;
+  });
+
+  // Sync map → hero
+  document.getElementById("mapSearchInput").addEventListener("input", () => {
+    document.getElementById("searchInput").value =
+      document.getElementById("mapSearchInput").value;
+    usingMyLocation = false;
+  });
+
+  document.getElementById("mapRadiusInput").addEventListener("input", () => {
+    document.getElementById("radiusInput").value =
+      document.getElementById("mapRadiusInput").value;
+  });
+
+  // Enter key for hero search
   document.getElementById("searchInput").addEventListener("keypress", e => {
     if (e.key === "Enter") {
       e.preventDefault();
-      usingMyLocation = document.getElementById("searchInput").value === "My Location";
+      usingMyLocation = false;
       searchChurches();
     }
   });

@@ -101,31 +101,47 @@
   <!-- CHURCH SEARCH RESULTS -->
   <section id="get-involved">
     <div class="row">
-      <div id="mapSearchControls" class="search-controls small">
-        <div class="search-field">
-          <label>Location</label>
-          <input type="text" id="mapSearchInput" placeholder="City, ZIP, or address">
-        </div>
+      <div id="mapSearchControls" class="search-controls-horizontal">
 
-        <div class="search-field">
-          <label>Radius</label>
-          <div class="radius-wrapper">
-            <input type="number" id="mapRadiusInput" value="10" min="1" max="100">
-            <span class="radius-label">miles</span>
+        <div class="inputs-row">
+
+          <!-- Location -->
+          <div class="input-group location-group">
+            <label for="mapSearchInput">Location</label>
+            <div class="location-wrapper">
+              <input
+                type="text"
+                id="mapSearchInput"
+                placeholder="City, ZIP, or address"
+              >
+              <button id="mapUseLocationBtn" class="loc-btn" aria-label="Use My Location">
+                <i class="fas fa-location-crosshairs"></i>
+              </button>
+            </div>
           </div>
+
+          <!-- Radius -->
+          <div class="input-group radius-group">
+            <label for="mapRadiusInput">Miles</label>
+            <input type="number" id="mapRadiusInput" value="10" min="1" max="100">
+          </div>
+
         </div>
 
-        <button id="locateBtn" class="btn secondary">Use My Location</button>
-        <button id="searchBtn" class="btn">Search</button>
+        <!-- Centered Search button -->
+        <button id="mapSearchBtn" class="btn search-btn">Search</button>
       </div>
+
+
 
       <h2>Church <span class="highlight">Search Results</span></h2>
       <p class="scripture"><em>“How good and pleasant it is when God’s people live together in unity!” – Psalm 133:1</em></p>
 
       <div id="mapAndResults">
         <div id="map" style="height: 400px; margin-bottom: 16px;"></div>
+        <p id="placeholder">Search above to find churches near you.</p>
         <div id="churchResults" class="church-grid">
-          <p class="placeholder">Search above to find churches near you.</p>
+          
         </div>
       </div>
     </div>
@@ -181,12 +197,12 @@
           <br>
           <br>
           What does this mean for us? The <strong>last thing</strong> we need is internal strife in the 
-          Church. (1 Corinthians 1:10) It is time for us to <strong>unite</strong> as Christians 
+          Church. <em>(1 Corinthians 1:10)</em> It is time for us to <strong>unite</strong> as Christians 
           <strong>under Christ</strong>, sticking to sound doctrine: that <strong>Jesus is Lord</strong>
-          (John 10:30-38), God is <strong>one God</strong> with 
-          <strong>three persons</strong> (1 John 5:7), salvation is <strong>by grace through faith</strong>
-          in Christ <strong>alone</strong> (John 14:6), and the Bible is <strong>inerrant</strong>
-          and <strong>infallible</strong> (2 Timothy 3:16). 
+          <em>(John 10:30-38)</em>, God is <strong>one God</strong> with 
+          <strong>three persons</strong> <em>(1 John 5:7)</em>, salvation is <strong>by grace through faith</strong>
+          in Christ <strong>alone</strong> <em>(John 14:6)</em>, and the Bible is <strong>inerrant</strong>
+          and <strong>infallible</strong> <em>(2 Timothy 3:16)</em>. 
         </p>
       </div>
       <p>
