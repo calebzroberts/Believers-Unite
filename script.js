@@ -343,3 +343,36 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 });
+
+// ----------------------------------------------------
+// CONTACT FORM HANDLING
+// ----------------------------------------------------
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  
+    document.getElementById("contactSubmitBtn").innerText = "Thanks!";
+    document.getElementById("contactSubmitBtn").disabled = true;
+    document.getElementById("contactSubmitBtn").style.cursor = "not-allowed";
+    e.preventDefault();
+
+    const form = e.target;
+    
+    const formData = {
+        firstName: form.firstName.value,
+        lastName: form.lastName.value,
+        email: form.email.value,
+        message: form.message.value,
+        website: form.website.value 
+    };
+
+    await fetch("https://script.google.com/macros/s/AKfycbwszoVRwBKr0cIUU4u-z1Rxuv_vgKf24hZZGpgmdxdhoifTy8qPZM0cLOZ317dEhrJf/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+    });
+
+    form.reset();
+    document.getElementById("contactSubmitBtn").innerText = "SEND";
+    document.getElementById("contactSubmitBtn").disabled = false;
+    document.getElementById("contactSubmitBtn").style.cursor = "pointer";
+});

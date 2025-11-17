@@ -457,9 +457,23 @@ nav a:hover {
 /* submit button alignment and spacing */
 #contact form .btn[type="submit"],
 #contact form button[type="submit"] {
-  align-self: flex-start; /* left align on wide screens */
+  align-self: center; /* center the button */
   margin-top: 0.5rem;
   padding: 0.9rem 1.6rem;
+}
+
+#contact #contactDisclaimer {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+#contact #contactDisclaimer a {
+  font-size: 0.8rem;
+  color: #d2b100;
+  margin-top: 1rem;
+  font-style: italic;
 }
 
 /* on small screens make submit full width */
@@ -472,6 +486,31 @@ nav a:hover {
   .founder-flex > p {
     text-align: center;
   }
+}
+
+
+
+/*Terms and Privacy Sections*/
+#terms, #privacy {
+  max-width: 800px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+#terms h3, #privacy h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #a81e1e;
+}
+
+#terms p , #privacy p {
+  margin-left: 1rem;
+}
+
+#terms ul, #privacy ul {
+  margin-left: 3rem;
 }
 
 
@@ -494,6 +533,16 @@ footer {
 .socials a {
   color:#d2b100;
   font-size:1.3rem;
+}
+
+#termsLinks {
+  margin-top: 1rem;
+}
+
+#termsLinks a {
+  color:#d2b100;
+  margin: 0 0.8rem;
+  text-decoration: underline;
 }
 
 /* RESPONSIVE */

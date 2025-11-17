@@ -223,12 +223,19 @@
     <div class="row">
       <h2>Contact Us</h2>
       <p>If you have questions, comments, or want to get more involved, don’t hesitate to reach out!</p>
-      <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send</button>
-      </form>
+      <form id="contactForm">
+        <input type="text" name="firstName" placeholder="First Name" required>
+        <input type="text" name="lastName" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <input type="text" name="website" autocomplete="off" tabindex="-1" style="display:none">
+
+        <button id="contactSubmitBtn" type="submit" class="btn">Send</button>
+    </form>
+
+    <p id="contactDisclaimer">By submitting this form, you agree to our 
+      <a href="terms-conditions.html">Terms &amp; Conditions</a>
+      and <a href="privacy-policy.html">Privacy Policy.</a></p>
       
     </div>
   </section>
@@ -243,6 +250,7 @@
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       </div>
       <p>©2025 Believers Unite</p>
+      <p id="termsLinks"><a href="terms-conditions.html">Terms & Conditions</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
 
     </div>
   </footer>
