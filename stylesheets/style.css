@@ -83,7 +83,7 @@ nav a:hover {
 .hero {
   position: relative;
   height: 85vh;
-  background: url("Images/Bible.webp") center/cover no-repeat;
+  background: url("../Images/Bible.webp") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,6 +217,17 @@ nav a:hover {
   color: #fff;
 }
 
+.btn.dark {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #222;
+  border: 2px solid #222;
+}
+
+.btn.dark:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
 /* CHURCH GRID */
 .church-grid {
   margin-top: 2rem;
@@ -274,9 +285,29 @@ nav a:hover {
 /* Get Involved */
 #get-involved {
   text-align: center;
-  padding: 4rem 10%;
+  padding: 2rem 10%;
 }
 .highlight { color:#a81e1e; }
+
+#get-involved h2 {
+  margin: 1rem 0 0.6rem 0;
+}
+
+#get-involved p.scripture {
+  margin: 1rem 0 3rem 0;
+}
+
+#get-involved .search-controls-horizontal {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin: 1.5rem auto;
+}
+
+#get-involved .search-btn {
+  margin-top: 0;
+}
 
 /* Gold Section */
 .gold-section {
@@ -435,7 +466,8 @@ nav a:hover {
 /* inputs and textarea full width with consistent styling */
 #contact input[type="text"],
 #contact input[type="email"],
-#contact textarea {
+#contact textarea,
+#signupSection input {
   width: 100%;
   padding: 0.9rem 1rem;
   border: 1px solid #ccc;
@@ -513,6 +545,78 @@ nav a:hover {
   margin-left: 3rem;
 }
 
+.regularHeading {
+  padding: 5rem 2rem;
+  background-color: #222;
+
+  display: flex;
+  
+}
+
+.regularHeading .row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.regularHeading h2{
+  color:#ddd;
+  
+}
+
+/*Sign Up Section*/
+#signupSection {
+    background: #d2b100;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#signupSection #signupMainContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: auto;
+}
+
+#signupSection p {
+    margin-right: 2rem;
+    flex: 1;
+    font-weight: 500;
+}
+
+/* Right side layout */
+#signupForm {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Match your contact input styling */
+#signupForm input {
+    width: auto;
+    margin-right: 1rem;
+}
+
+#signupSection .btn {
+  margin-top: 0;
+}
+
+
+/* Confirmation message under whole section */
+#signupSection #signupMessage {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+#signupMainContent h2 {
+  margin: 1rem 0;
+}
+
+
 
 /* FOOTER */
 footer {
@@ -564,6 +668,10 @@ footer {
     gap: 1rem;
   }
   .founder-flex {
+    flex-direction: column;
+  }
+
+  #get-involved .search-controls-horizontal {
     flex-direction: column;
   }
 }

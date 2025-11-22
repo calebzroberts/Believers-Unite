@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Believers Unite!</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <script defer src="javascript/script.js"></script>
+  <script defer src="javascript/emailSignup.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="shortcut icon" href="Images/logo-final-icon.png" type="image/x-icon">
 
@@ -41,10 +42,10 @@
     <nav>
       <div class="row">
         <ul>
-          <li><a href="#home">HOME</a></li>
-          <li><a href="#get-involved">SEARCH</a></li>
-          <li><a href="#mission">ABOUT</a></li>
-          <li><a href="#contact">CONTACT</a></li>
+          <li><a href="/#home">HOME</a></li>
+          <li><a href="/#get-involved">SEARCH</a></li>
+          <li><a href="/#mission">ABOUT</a></li>
+          <li><a href="/#contact">CONTACT</a></li>
         </ul>
       </div>
     </nav>
@@ -58,7 +59,7 @@
       <div class="overlay"></div>
       <div class="hero-content">
         <h2>
-          Find a <span class="highlight">Bible-believing</span> Church. 
+          Find a <span class="highlight">Bible-believing</span> Church. <br>
           Get <span class="highlight">Involved</span>. 
           <span class="highlight">Unite</span> in Faith.
         </h2>
@@ -101,6 +102,9 @@
   <!-- CHURCH SEARCH RESULTS -->
   <section id="get-involved">
     <div class="row">
+      <h2>Church <span class="highlight">Search Results</span></h2>
+      <p class="scripture"><em>“How good and pleasant it is when God’s people live together in unity!” – Psalm 133:1</em></p>
+
       <div id="mapSearchControls" class="search-controls-horizontal">
 
         <div class="inputs-row">
@@ -134,9 +138,7 @@
 
 
 
-      <h2>Church <span class="highlight">Search Results</span></h2>
-      <p class="scripture"><em>“How good and pleasant it is when God’s people live together in unity!” – Psalm 133:1</em></p>
-
+      
       <div id="mapAndResults">
         <div id="map" style="height: 400px; margin-bottom: 16px;"></div>
         <p id="placeholder">Search above to find churches near you.</p>
@@ -240,6 +242,34 @@
     </div>
   </section>
 
+  <!--Sign Up-->
+  <section id="signupSection">
+    <div class="row">
+      
+      <div id="signupMainContent">
+        <div>
+          <h2>Excited About Believers Unite?</h2>
+          <p>
+            This is a work in progress and 
+            we are so excited to see where God takes it. Enter your email 
+            to be the first to know about new updates!
+          </p>
+
+        </div>
+
+        <form id="signupForm">
+          <input type="email" id="signupEmail" name="email" placeholder="Your email" required>
+          <button type="submit" class="btn dark" id="signUpBtn">Sign Up</button>
+          
+        </form>
+      </div>
+      
+      <p id="signupMessage"></p>
+
+    </div>
+    
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="row">
@@ -250,7 +280,7 @@
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       </div>
       <p>©2025 Believers Unite</p>
-      <p id="termsLinks"><a href="terms-conditions.html">Terms & Conditions</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
+      <p id="termsLinks"><a href="/terms-and-conditions/">Terms & Conditions</a> | <a href="/privacy-policy/">Privacy Policy</a></p>
 
     </div>
   </footer>

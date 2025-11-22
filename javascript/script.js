@@ -1,7 +1,7 @@
 // ----------------------------------------------------
 // CONFIG
 // ----------------------------------------------------
-const JSON_URL = "churchesList.json";
+const JSON_URL = "../databases/churchesList.json";
 const EARTH_RADIUS_MILES = 3958.8;
 
 let map, markerClusterGroup;
@@ -120,7 +120,8 @@ function displayResults(results) {
     card.innerHTML = `
       <div class="info">
         <h3>${escapeHtml(ch.name)}</h3>
-        <p><strong>Address:</strong> ${escapeHtml(ch.address)}, ${escapeHtml(ch.city)}, ${escapeHtml(ch.zip)}</p>
+        <p><strong>Address:</strong> ${escapeHtml(ch.address)}, ${escapeHtml(ch.city)}, ${escapeHtml(ch.zip)}</p><br>
+        <p><strong>Distance:</strong> ${ch.distance ? ch.distance.toFixed(1) : "?"} miles</p>
       </div>
 
       <div class="church-links">
@@ -274,11 +275,20 @@ async function searchChurches() {
     return;
   }
 
-  const results = churchesCache.filter(ch => {
-    if (!ch.latitude || !ch.longitude) return false;
-    const dist = distanceMiles(locationPoint.lat, locationPoint.lon, ch.latitude, ch.longitude);
-    return dist <= radius;
-  });
+  const results = churchesCache
+  .map(ch => {
+    if (!ch.latitude || !ch.longitude) return null;
+    const dist = distanceMiles(
+      locationPoint.lat,
+      locationPoint.lon,
+      ch.latitude,
+      ch.longitude
+    );
+    return { ...ch, distance: dist };
+  })
+  .filter(ch => ch && ch.distance <= radius)
+  .sort((a, b) => a.distance - b.distance);
+
 
   displayResults(results);
 
@@ -364,9 +374,9 @@ document.getElementById("contactForm").addEventListener("submit", async function
         website: form.website.value 
     };
 
-    await fetch("https://script.google.com/macros/s/AKfycbwszoVRwBKr0cIUU4u-z1Rxuv_vgKf24hZZGpgmdxdhoifTy8qPZM0cLOZ317dEhrJf/exec", {
+    await fetch("https://script.google.com/macros/s/AKfycbwUveipFA9_qLjXgqAP9F06UdEwv4jTFlCajIsNbUoQtj2kaKDbH2-YVEsOR5WwFlSy/exec", {
         method: "POST",
-        mode: "no-cors",
+        
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
     });
