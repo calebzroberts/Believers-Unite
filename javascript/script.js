@@ -360,29 +360,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 document.getElementById("contactForm").addEventListener("submit", async function(e) {
   
     document.getElementById("contactSubmitBtn").innerText = "Thanks!";
-    document.getElementById("contactSubmitBtn").disabled = true;
-    document.getElementById("contactSubmitBtn").style.cursor = "not-allowed";
-    e.preventDefault();
-
-    const form = e.target;
-    
-    const formData = {
-        firstName: form.firstName.value,
-        lastName: form.lastName.value,
-        email: form.email.value,
-        message: form.message.value,
-        website: form.website.value 
-    };
-
-    await fetch("https://script.google.com/macros/s/AKfycbwUveipFA9_qLjXgqAP9F06UdEwv4jTFlCajIsNbUoQtj2kaKDbH2-YVEsOR5WwFlSy/exec", {
-        method: "POST",
-        
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-    });
 
     form.reset();
-    document.getElementById("contactSubmitBtn").innerText = "SEND";
-    document.getElementById("contactSubmitBtn").disabled = false;
-    document.getElementById("contactSubmitBtn").style.cursor = "pointer";
 });
