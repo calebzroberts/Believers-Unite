@@ -225,15 +225,19 @@
     <div class="row">
       <h2>Contact Us</h2>
       <p>If you have questions, comments, or want to get more involved, don’t hesitate to reach out!</p>
-      <form id="contactForm" action="https://formsubmit.co/caleb.roberts798@gmail.com" method="post">
+      <form id="contactForm" action="https://formsubmit.co/caleb.roberts798@gmail.com" method="POST">
         <input type="text" name="firstName" placeholder="First Name" required>
         <input type="text" name="lastName" placeholder="Last Name" required>
         <input type="email" name="email" placeholder="Email" required>
         <textarea name="message" placeholder="Message" rows="5" required></textarea>
-        <input type="text" name="website" autocomplete="off" tabindex="-1" style="display:none">
+
+        <!-- Optional redirect after submit -->
+        <input type="hidden" name="_next" value="/thanks/">
+
+        <input type="hidden" name="_captcha" value="false">
 
         <button id="contactSubmitBtn" type="submit" class="btn">Send</button>
-    </form>
+      </form>
 
     <p id="contactDisclaimer">By submitting this form, you agree to our 
       <a href="terms-conditions.html">Terms &amp; Conditions</a>
@@ -259,8 +263,8 @@
 
         <form id="signupForm" action="https://formsubmit.co/caleb.roberts798@gmail.com" method="post">
           <input type="email" id="signupEmail" name="email" placeholder="Your email" required>
+          <input type="hidden" name="_next" value="/thanks/">
           <button type="submit" class="btn dark" id="signUpBtn">Sign Up</button>
-          
         </form>
       </div>
       
