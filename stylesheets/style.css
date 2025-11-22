@@ -616,6 +616,20 @@ nav a:hover {
   margin: 1rem 0;
 }
 
+/*Thanks page*/
+#thanks {
+  height: 80vh;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+    url("../Images/Bible.webp");
+  background-size: cover;
+  background-position: center center;
+  
+}
+
+#thanks h2 {
+  color:#222;
+}
 
 
 /* FOOTER */
