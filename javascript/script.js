@@ -1,7 +1,7 @@
 // ----------------------------------------------------
 // CONFIG
 // ----------------------------------------------------
-const JSON_URL = "databases/churchesList.json";
+const JSON_URL = "/databases/churchesList.json";
 const EARTH_RADIUS_MILES = 3958.8;
 
 let map, markerClusterGroup;
