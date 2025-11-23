@@ -79,6 +79,17 @@ nav a:hover {
   color: #a81e1e;
 }
 
+/* Hide mobile button on desktop */
+#mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+}
+
 /* HERO */
 .hero {
   position: relative;
@@ -692,7 +703,58 @@ footer {
   #get-involved .search-controls-horizontal {
     flex-direction: column;
   }
+  
+  /* Turn yellow bar into a centered flex bar */
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* centers hamburger horizontally */
+    align-items: center;        /* centers it vertically */
+    padding: 0.6rem 0;
+  }
+
+  /* Show hamburger */
+  #mobileMenuBtn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #000;
+    cursor: pointer;
+    padding: 0.4rem 0;
+  }
+
+  /* Hide the row wrapping your <ul> so it behaves vertically */
+  nav .row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Hide menu by default */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    padding-top: 0.5rem;
+  }
+
+  /* Show when nav gets .open */
+  nav.open ul {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 0;
+    border-top: 1px solid rgba(0,0,0,0.15);
+  }
 }
+
+
 
 @media (max-width: 600px) {
   .inputs-row {
