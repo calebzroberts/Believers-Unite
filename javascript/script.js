@@ -300,7 +300,7 @@ async function searchChurches() {
 
   displayResults(results);
 
-  document.getElementById("get-involved").scrollIntoView({ behavior: "smooth" });
+  document.getElementById("mapSearchControls").scrollIntoView({ behavior: "smooth" });
 }
 
 document.getElementById("sortSelect").addEventListener("change", () => {

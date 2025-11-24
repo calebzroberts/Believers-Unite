@@ -120,6 +120,11 @@ nav a:hover {
   margin-bottom: 2rem;
 }
 
+.hero-content p.local-seo {
+  font-size: 1rem;
+  margin-bottom: .5rem;
+}
+
 /* MAP + SEARCH */
 #mapAndResults {
   display: flex;
@@ -318,6 +323,13 @@ nav a:hover {
   color:#d2b100;
 }
 
+/*Seo block*/
+
+
+.local-info h2 {
+  margin-bottom: 1rem;
+}
+
 /* Get Involved */
 #get-involved {
   text-align: center;
@@ -330,7 +342,7 @@ nav a:hover {
 }
 
 #get-involved p.scripture {
-  margin: 1rem 0 3rem 0;
+  margin: 1rem 0;
 }
 
 #get-involved .search-controls-horizontal {
@@ -346,16 +358,34 @@ nav a:hover {
 }
 
 /* Gold Section */
-.gold-section {
+.gold-section, .black-section {
   background-color: #d2b100;
   color: #222;
   padding: 4rem 10%;
   text-align: center;
 }
-.gold-section p {
+
+.gold-section {
+  background-color: #d2b100;
+  color: #222;
+}
+
+.black-section {
+  background-color: #000;
+  color:white;
+}
+
+.gold-section p, .black-section p {
   max-width: 700px;
   margin: 0.5rem auto;
   line-height: 1.6;
+}
+
+.gold-section p {
+  color: #000;
+}
+
+.black-section p {
   color:white;
 }
 
@@ -675,6 +705,10 @@ footer {
   text-align:center;
   padding:2rem 1rem;
   font-size:0.9rem;
+}
+
+footer .footer-locations {
+  margin-bottom: .5rem;
 }
 
 .socials {

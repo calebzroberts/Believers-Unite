@@ -12,7 +12,8 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Believers Unite!</title>
+  <title>Lancaster PA Church Finder | Bible-Believing Churches Near You</title>
+  <meta name="description" content="Find Bible-believing churches in Lancaster, PA and nearby areas. Search by ZIP code, view local congregations on a map, and get involved in the Christian community.">
   <link rel="stylesheet" href="stylesheets/style.css" />
   <script defer src="javascript/script.js"></script>
   <script defer src="javascript/emailSignup.js"></script>
@@ -43,11 +44,22 @@
     defer
     src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
   ></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Lancaster PA Church Directory",
+    "description": "List of Bible-believing churches in Lancaster, PA and surrounding areas.",
+    "itemListElement": []
+  }
+  </script>
+
 </head>
 <body>
   <header>
     <div class="row">
-      <img id="headerLogo" src="Images/logo-final-wide-cropped.png" alt="Believers Unite Logo">
+      <img id="headerLogo" src="Images/logo-final-wide-cropped.png" alt="Believers Unite Christian Directory Logo">
     </div>
     
     <nav>
@@ -57,10 +69,10 @@
 
       <div class="row">
         <ul>
-          <li><a href="/#home">HOME</a></li>
-          <li><a href="/#get-involved">SEARCH</a></li>
-          <li><a href="/#mission">ABOUT</a></li>
-          <li><a href="/#contact">CONTACT</a></li>
+          <li><a href="/#home" title="Back to top">HOME</a></li>
+          <li><a href="/#get-involved" title="Go to local church search tool">FIND LOCAL CHURCHES</a></li>
+          <li><a href="/#mission" title="Learn more about Believers Unite">ABOUT</a></li>
+          <li><a href="/#contact" title="Contact Believers Unite">CONTACT</a></li>
         </ul>
       </div>
     </nav>
@@ -79,6 +91,10 @@
           <span class="highlight">Unite</span> in Faith.
         </h1>
         <h3>Find and Connect with Local Churches in the Lancaster, PA Area</h3>
+        <p class="local-seo">
+          Serving Lancaster, Manheim, Lititz, Ephrata, Elizabethtown, Mount Joy, and the surrounding Central PA area.
+        </p>
+
 
         <!-- ZIP SEARCH BOX -->
         <div class="search-controls-horizontal">
@@ -114,12 +130,25 @@
     </div>
   </section>
 
+  <section class="local-info gold-section">
+    <div class="row">
+      <h2>Churches in Lancaster, PA</h2>
+      <p>
+        Believers Unite helps Christians find Bible-believing churches throughout Lancaster County. 
+        Whether you're new to the area, looking to reconnect with a church community, or searching for 
+        a congregation grounded in Scripture, this directory covers churches across Lancaster, PA and 
+        surrounding towns including Lititz, Manheim, Ephrata, Mount Joy, and Elizabethtown.
+      </p>
+    </div>
+  </section>
+
   <!-- CHURCH SEARCH RESULTS -->
   <section id="get-involved">
     <div class="row">
       <h2>Church <span class="highlight">Search Results</span></h2>
       <p class="scripture"><em>“How good and pleasant it is when God’s people live together in unity!” – Psalm 133:1</em></p>
 
+      
       <div id="mapSearchControls" class="search-controls-horizontal">
 
         <div class="inputs-row">
@@ -175,7 +204,7 @@
   </section>
 
   <!-- MISSION-->
-  <section id="mission" class="gold-section">
+  <section id="mission" class="black-section">
     <div class="row">
       <h2 class="mission">Our Mission Is Clear</h2>
       <p>Bring together the Body of Christ, helping every believer to get involved in the Christian community and grow in faith.</p>
@@ -216,7 +245,7 @@
     <div class="row">
       <h2>Meet Caleb, The Founder</h2>
       <div class="founder-flex">
-        <img src="Images/headshot.webp" alt="Founder headshot" class="founder-img">
+        <img src="Images/headshot.webp" alt="Caleb Roberts Founder of Believers Unite" class="founder-img">
         <p>
           The Spirit of God has been moving and continues to move throughout the Nation and the 
           World in unparalleled ways. This, however, does <strong>not</strong> mean the Church is free of 
@@ -265,8 +294,8 @@
       </form>
 
     <p id="contactDisclaimer">By submitting this form, you agree to our 
-      <a href="terms-conditions.html">Terms &amp; Conditions</a>
-      and <a href="privacy-policy.html">Privacy Policy.</a></p>
+      <a href="terms-conditions.html" title="See Believers Unite Terms and Conditions">Terms &amp; Conditions</a>
+      and <a href="privacy-policy.html" title="See Believers Unite Privacy Policy">Privacy Policy.</a></p>
       
     </div>
   </section>
@@ -305,12 +334,15 @@
     <div class="row">
       <p>ALL IN THE NAME OF THE LORD JESUS.</p>
       <div class="socials">
-        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="X" title="Follow Believers Unite on X"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram" title="Follow Believers Unite on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook" title="Follow Believers Unite on Facebook"><i class="fab fa-facebook-f"></i></a>
       </div>
+      <p class="footer-locations">
+        Serving Lancaster, PA • Lititz • Manheim • Mount Joy • Ephrata • Elizabethtown • Columbia • East Petersburg
+      </p>
       <p>©2025 Believers Unite</p>
-      <p id="termsLinks"><a href="/terms-and-conditions/">Terms & Conditions</a> | <a href="/privacy-policy/">Privacy Policy</a></p>
+      <p id="termsLinks"><a href="/terms-and-conditions/" title="See Believers Unite Terms and Conditions">Terms & Conditions</a> | <a href="/privacy-policy/" title="See Believers Unite Privacy Policy">Privacy Policy</a></p>
 
     </div>
   </footer>
