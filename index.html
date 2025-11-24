@@ -156,11 +156,21 @@
       
       <div id="mapAndResults">
         <div id="map" style="height: 400px; margin-bottom: 16px;"></div>
+        
+        <div id="sortingControls">
+          <label for="sortSelect">Sort by:</label>
+          <select id="sortSelect">
+            <option value="distance" selected>Distance</option>
+            <option value="name">Name (A–Z)</option>
+          </select>
+        </div>
+
         <p id="placeholder">Search above to find churches near you.</p>
         <div id="churchResults" class="church-grid">
           
         </div>
       </div>
+
     </div>
   </section>
 

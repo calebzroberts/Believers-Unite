@@ -239,6 +239,31 @@ nav a:hover {
   color: #fff;
 }
 
+/*Sorting Controls*/
+#sortingControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 10px auto;
+  max-width: 700px;
+  padding: 0 10px;
+}
+
+#sortingControls label {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+#sortingControls select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+
 /* CHURCH GRID */
 .church-grid {
   margin-top: 2rem;

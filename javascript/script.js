@@ -275,25 +275,38 @@ async function searchChurches() {
     return;
   }
 
-  const results = churchesCache
-  .map(ch => {
-    if (!ch.latitude || !ch.longitude) return null;
-    const dist = distanceMiles(
-      locationPoint.lat,
-      locationPoint.lon,
-      ch.latitude,
-      ch.longitude
-    );
-    return { ...ch, distance: dist };
-  })
-  .filter(ch => ch && ch.distance <= radius)
-  .sort((a, b) => a.distance - b.distance);
+  let results = churchesCache
+    .map(ch => {
+      if (!ch.latitude || !ch.longitude) return null;
+      const dist = distanceMiles(
+        locationPoint.lat,
+        locationPoint.lon,
+        ch.latitude,
+        ch.longitude
+      );
+      return { ...ch, distance: dist };
+    })
+    .filter(ch => ch && ch.distance <= radius);
+
+  // read sorting selection
+  const sortMode = document.getElementById("sortSelect").value;
+
+  if (sortMode === "distance") {
+    results.sort((a, b) => a.distance - b.distance);
+  } else if (sortMode === "name") {
+    results.sort((a, b) => a.name.localeCompare(b.name));
+  }
 
 
   displayResults(results);
 
   document.getElementById("get-involved").scrollIntoView({ behavior: "smooth" });
 }
+
+document.getElementById("sortSelect").addEventListener("change", () => {
+  // if results already exist, re-run search with the same filters
+  searchChurches();
+});
 
 
 // ----------------------------------------------------
