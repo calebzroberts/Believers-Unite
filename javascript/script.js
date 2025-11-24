@@ -11,6 +11,53 @@ let usingMyLocation = false;
 
 const placeholderText = document.getElementById("placeholder");
 
+function loadLeaflet() {
+  if (window.leafletLoaded) return;
+  window.leafletLoaded = true;
+
+  // Load CSS
+  const leafletCSS = document.createElement("link");
+  leafletCSS.rel = "stylesheet";
+  leafletCSS.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+  document.head.appendChild(leafletCSS);
+
+  const markerCSS = document.createElement("link");
+  markerCSS.rel = "stylesheet";
+  markerCSS.href = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css";
+  document.head.appendChild(markerCSS);
+
+  const markerDefaultCSS = document.createElement("link");
+  markerDefaultCSS.rel = "stylesheet";
+  markerDefaultCSS.href = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css";
+  document.head.appendChild(markerDefaultCSS);
+
+  // Load JS sequentially
+  const leafletJS = document.createElement("script");
+  leafletJS.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+  leafletJS.onload = () => {
+    const markerJS = document.createElement("script");
+    markerJS.src = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js";
+    markerJS.onload = () => {
+      initMap(); // your existing map init function
+    };
+    document.body.appendChild(markerJS);
+  };
+  document.body.appendChild(leafletJS);
+}
+
+// Observe map container
+const mapContainer = document.getElementById("map");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      loadLeaflet();
+      observer.disconnect(); // only load once
+    }
+  });
+}, { rootMargin: "200px" }); // load slightly before user reaches map
+
+observer.observe(mapContainer);
+
 
 // ----------------------------------------------------
 // UTILITIES
