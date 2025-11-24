@@ -374,5 +374,5 @@ document.getElementById("contactForm").addEventListener("submit", async function
   
     document.getElementById("contactSubmitBtn").innerText = "Thanks!";
 
-    form.reset();
+    this.reset();
 });
