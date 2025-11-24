@@ -93,6 +93,8 @@ nav a:hover {
 .hero {
   position: relative;
   height: 85vh;
+  min-height: 600px;
+
   background: url("../Images/Bible.webp") center/cover no-repeat;
   display: flex;
   align-items: center;

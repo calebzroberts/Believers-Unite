@@ -284,7 +284,16 @@ async function searchChurches() {
   else if (sortMode === "name") results.sort((a,b)=>a.name.localeCompare(b.name));
 
   displayResults(results);
-  document.getElementById("mapSearchControls").scrollIntoView({ behavior: "smooth" });
+  if (map && markerClusterGroup) {
+    document.getElementById("mapSearchControls").scrollIntoView({ behavior: "smooth" });
+  } else {
+    // retry after a short delay
+    setTimeout(() => {
+      const elem = document.getElementById("mapSearchControls");
+      if (elem) elem.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  }
+
 }
 
 // Wrapper to handle searches before Leaflet loads
