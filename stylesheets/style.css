@@ -360,8 +360,6 @@ nav a:hover {
 
 /* Gold Section */
 .gold-section, .black-section {
-  background-color: #d2b100;
-  color: #222;
   padding: 4rem 10%;
   text-align: center;
 }
@@ -374,6 +372,10 @@ nav a:hover {
 .black-section {
   background-color: #000;
   color:white;
+}
+
+.black-section h2 {
+  color:#d2b100;
 }
 
 .gold-section p, .black-section p {
