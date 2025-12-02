@@ -214,6 +214,17 @@ async function reverseGeocode(lat, lon) {
 }
 
 // ----------------------------------------------------
+// BUTTON USAGE TRACKING
+// ----------------------------------------------------
+function trackSearchClick() {
+  gtag('event', 'church_search', {
+    event_category: 'Search',
+    event_label: 'User searched for churches'
+  });
+}
+
+
+// ----------------------------------------------------
 // LOCATION BUTTONS
 // ----------------------------------------------------
 function setupLocateButtons() {
@@ -321,8 +332,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   churchesCache = await fetchChurches();
 
   // Search buttons
-  document.getElementById("searchBtn").addEventListener("click", searchChurchesWrapper);
+  document.getElementById("searchBtn").addEventListener("click", () => {
+    trackSearchClick();
+    searchChurchesWrapper();
+  });
   document.getElementById("mapSearchBtn").addEventListener("click", () => {
+    trackSearchClick();
     document.getElementById("searchInput").value = document.getElementById("mapSearchInput").value;
     document.getElementById("radiusInput").value = document.getElementById("mapRadiusInput").value;
     searchChurchesWrapper();
