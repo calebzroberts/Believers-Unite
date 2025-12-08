@@ -22,10 +22,10 @@
 }
 
 
-.location-disclaimer a:link, .location-disclaimer a:visited {
+.location-disclaimer a:link, .location-disclaimer a:visited, .faq-section a:link, .faq-section a:visited {
     color:#a81e1e;
 }
 
-.location-disclaimer a:active {
+.location-disclaimer a:active, .faq-section a:active {
     color:#3e0b0b;
 }
