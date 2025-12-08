@@ -29,20 +29,20 @@ h3 {
 
 /* Links*/
 
-p a {
+p a{
   text-decoration: none;
   transition: all .2s;
 }
 
-p a:link, p a:visited {
+p a:link, p a:visited{
   color:#d2b100;
 }
 
-p a:hover {
+p a:hover{
   text-decoration: underline;
 }
 
-p a:active {
+p a:active{
   color:#ffe760;
 }
 

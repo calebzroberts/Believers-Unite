@@ -42,6 +42,7 @@
   <meta name="twitter:site" content="@BelieversUniteX">
 
   <link rel="stylesheet" href="../stylesheets/style.css" />
+  <script defer src="/javascript/mobileHeader.js?v=1.0"></script>
   
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   
@@ -49,7 +50,9 @@
 <body>
   <header>
     <div class="row">
-      <img id="headerLogo" src="../Images/logo-final-wide-cropped.webp" alt="Believers Unite Logo">
+      <a href="/" aria-label="Believers Unite Home">
+        <img id="headerLogo" src="/Images/logo-final-wide-cropped.webp" alt="Believers Unite Christian Directory Logo" width="450" height="auto">
+      </a>  
     </div>
     <nav>
       <button id="mobileMenuBtn" aria-label="Menu">
@@ -62,6 +65,7 @@
           <li><a href="/#get-involved">SEARCH</a></li>
           <li><a href="/#mission">ABOUT</a></li>
           <li><a href="/#contact">CONTACT</a></li>
+          <li><a href="/locations/">LOCATIONS</a></li>
         </ul>
       </div>
     </nav>

@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+Allow: /javascript/
+Allow: /stylesheets/
+Allow: /Images/
+Allow: /databases/
+
+Disallow: /thanks/
+
 Sitemap: https://believersunite.com/sitemap.xml

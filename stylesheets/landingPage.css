@@ -20,3 +20,12 @@
     color:#a81e1e;
     margin: 1rem 0;
 }
+
+
+.location-disclaimer a:link, .location-disclaimer a:visited {
+    color:#a81e1e;
+}
+
+.location-disclaimer a:active {
+    color:#3e0b0b;
+}

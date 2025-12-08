@@ -1,0 +1,30 @@
+ul.location-list li{
+    list-style-type: none;
+    margin-bottom: .5rem;
+}
+
+ul.location-list a {
+  text-decoration: none;
+  transition: all .2s;
+}
+
+ul.location-list a:link, ul.location-list a:visited {
+  color:#d2b100;
+}
+
+ul.location-list a:hover {
+  text-decoration: underline;
+}
+
+ul.location-list a:active {
+  color:#ffe760;
+}
+
+.hero {
+    height: auto;
+    min-height: 300px;
+}
+
+.hero .overlay {
+    background-color: rgba(255, 255, 255, 0.8);
+}
