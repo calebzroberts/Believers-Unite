@@ -52,6 +52,16 @@ p a:active{
   margin: auto;
 }
 
+/*BANNER*/
+.banner {
+  color:white;
+  background-color: #7a0f0f;
+
+  text-align: center;
+  padding: .2rem;
+}
+
+
 /* HEADER */
 header {
   background-color: #fff;
