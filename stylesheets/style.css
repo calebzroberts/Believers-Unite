@@ -124,7 +124,7 @@ nav a:hover {
   height: 85vh;
   min-height: 600px;
 
-  background: url("../Images/Bible.webp") center/cover no-repeat;
+  background: url("../Images/Bible.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -785,7 +785,7 @@ nav a:hover {
   height: 80vh;
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
-    url("../Images/Bible.webp");
+    url("../Images/Bible.jpg");
   background-size: cover;
   background-position: center center;
   
