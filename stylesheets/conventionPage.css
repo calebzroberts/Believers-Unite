@@ -53,4 +53,12 @@
     #signUpSection input {
         width: 100%;
     }
+
+    #signUpSection {
+        margin-top: 2rem;
+    }
+
+    #convention h3 {
+        font-size: 1.6rem;
+    }
 }
