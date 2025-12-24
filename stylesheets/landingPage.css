@@ -30,7 +30,9 @@
     color:#3e0b0b;
 }
 
-@media screen and (max-width: 600px)
+
+
+@media screen and (max-width: 800px)
 { 
     .action-steps ul {
         display: flex;
