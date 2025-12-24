@@ -29,3 +29,17 @@
 .location-disclaimer a:active, .faq-section a:active {
     color:#3e0b0b;
 }
+
+@media screen and (max-width: 600px)
+{ 
+    .action-steps ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .action-steps ul li {
+        width: 100%;
+    }
+}
