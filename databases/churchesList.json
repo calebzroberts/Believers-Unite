@@ -2078,13 +2078,12 @@
   },
   {
     "name": "Second City Church",
-    "address": "251 Verbeke",
+    "address": "251 Verbeke St.",
     "city": "Harrisburg",
     "zip": 17102,
     "website": "https://www.secondcitychurch.org/",
-    "full_address": "251 Verbeke, Harrisburg, PA 17102, USA",
-    
-    
+    "full_address": "251 Verbeke St., Harrisburg, PA 17102, USA",
+
     "latitude": 40.269302,
     "longitude": -76.89002,
     "Geocodio Accuracy Score": 0.93,

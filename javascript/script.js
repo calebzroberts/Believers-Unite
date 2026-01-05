@@ -312,11 +312,13 @@ async function searchChurches() {
     locationPoint = gpsLocation;
   } 
   else if (query.length > 0) {
+    const isZip = isZipCode(query);
+
 
     // ZIP CODE SEARCH (NO GEOCODING)
-    if (isZipCode(query)) {
+    if (isZip) {
 
-      const zipMatches = churchesCache.filter(ch => ch.zip === query);
+      const zipMatches = churchesCache.filter(ch => String(ch.zip) === query);
 
       if (!zipMatches.length) {
         displayResults([]);
@@ -347,8 +349,18 @@ async function searchChurches() {
   }
 
   let results = churchesCache
-    .map(ch => !ch.latitude || !ch.longitude ? null : ({ ...ch, distance: distanceMiles(locationPoint.lat, locationPoint.lon, ch.latitude, ch.longitude) }))
-    .filter(ch => ch && ch.distance <= radius);
+    .map(ch => {
+      if (!ch.latitude || !ch.longitude) return null;
+      const distance = distanceMiles(
+        locationPoint.lat,
+        locationPoint.lon,
+        ch.latitude,
+        ch.longitude
+      );
+      return { ...ch, distance };
+    })
+    .filter(ch => ch && (isZipCode(query) || ch.distance <= radius));
+
 
   const sortMode = document.getElementById("sortSelect").value;
   if (sortMode === "distance") results.sort((a,b)=>a.distance-b.distance);
