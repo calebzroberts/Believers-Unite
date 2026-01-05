@@ -6,7 +6,8 @@ const EARTH_RADIUS_MILES = 3958.8;
 
 let map, markerClusterGroup;
 let churchesCache = [];
-let baseLocation = null;
+let gpsLocation = null;
+let typedLocation = null;
 let usingMyLocation = false;
 
 const placeholderText = document.getElementById("placeholder");
@@ -112,7 +113,11 @@ function initMap() {
 async function fetchChurches() {
   try {
     const res = await fetch(JSON_URL);
-    return await res.json();
+    const data = await res.json();
+    return data.filter(ch =>
+      typeof ch.latitude === "number" &&
+      typeof ch.longitude === "number"
+    );
   } catch (err) {
     console.error(err);
     return [];
@@ -190,7 +195,14 @@ function displayResults(results) {
 // ----------------------------------------------------
 async function geocodeQuery(query) {
   try {
-    const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`);
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`,
+      {
+        headers: {
+          "User-Agent": "BelieversUnite/1.0 (contact@believersunite.com)"
+        }
+      }
+    );    
     const json = await res.json();
     if (json.length === 0) return null;
     return { lat: parseFloat(json[0].lat), lon: parseFloat(json[0].lon) };
@@ -251,7 +263,7 @@ function setupLocateButtons() {
       navigator.geolocation.getCurrentPosition(async pos => {
         const lat = pos.coords.latitude;
         const lon = pos.coords.longitude;
-        baseLocation = { lat, lon };
+        gpsLocation = { lat, lon };
         usingMyLocation = true;
 
         const address = await reverseGeocode(lat, lon);
@@ -284,13 +296,22 @@ async function searchChurches() {
   if (churchesCache.length === 0) churchesCache = await fetchChurches();
 
   let locationPoint = null;
-  if (usingMyLocation && baseLocation) locationPoint = baseLocation;
+
+  if (usingMyLocation && gpsLocation) {
+    locationPoint = gpsLocation;
+  } 
   else if (query.length > 0) {
-    const geo = await geocodeQuery(query);
-    if (!geo) { displayResults([]); return; }
-    locationPoint = geo;
-    baseLocation = geo;
-  } else { displayResults([]); return; }
+    typedLocation = await geocodeQuery(query);
+    if (!typedLocation) { 
+      displayResults([]); 
+      return; 
+    }
+    locationPoint = typedLocation;
+  } 
+  else {
+    displayResults([]);
+    return;
+  }
 
   let results = churchesCache
     .map(ch => !ch.latitude || !ch.longitude ? null : ({ ...ch, distance: distanceMiles(locationPoint.lat, locationPoint.lon, ch.latitude, ch.longitude) }))
@@ -351,6 +372,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       usingMyLocation = false;
     });
   });
+  typedLocation = null;
+
   ["radiusInput", "mapRadiusInput"].forEach(id => {
     document.getElementById(id).addEventListener("input", e => {
       const other = id === "radiusInput" ? "mapRadiusInput" : "radiusInput";
