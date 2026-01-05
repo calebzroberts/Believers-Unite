@@ -361,7 +361,8 @@ async function searchChurches() {
       );
       return { ...ch, distance };
     })
-    .filter(ch => ch && (zipSearchMode || ch.distance <= radius));
+    .filter(ch => ch && ch.distance <= radius);
+
 
 
 
