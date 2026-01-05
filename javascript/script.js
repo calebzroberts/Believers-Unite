@@ -307,6 +307,7 @@ async function searchChurches() {
   if (churchesCache.length === 0) churchesCache = await fetchChurches();
 
   let locationPoint = null;
+  let zipSearchMode = false;
 
   if (usingMyLocation && gpsLocation) {
     locationPoint = gpsLocation;
@@ -316,7 +317,8 @@ async function searchChurches() {
 
 
     // ZIP CODE SEARCH (NO GEOCODING)
-    if (isZip) {
+    if (isZip && !usingMyLocation) {
+      zipSearchMode = true;
 
       const zipMatches = churchesCache.filter(ch => String(ch.zip) === query);
 
@@ -359,7 +361,8 @@ async function searchChurches() {
       );
       return { ...ch, distance };
     })
-    .filter(ch => ch && (isZipCode(query) || ch.distance <= radius));
+    .filter(ch => ch && (zipSearchMode || ch.distance <= radius));
+
 
 
   const sortMode = document.getElementById("sortSelect").value;

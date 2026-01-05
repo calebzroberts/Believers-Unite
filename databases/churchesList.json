@@ -1942,6 +1942,33 @@
     "Geocodio Source": "Lancaster"
   },
   {
+    "name": "Mount Calvary Lutheran Church",
+    "address": "308 Petersburg Rd",
+    "city": "Lititz",
+    "zip": 17543,
+    "website": "https://lancasterlutheran.com/",
+    "full_address": "308 Petersburg Rd, Lititz, PA 17543, USA",
+    
+    
+    "latitude": 40.0922151,
+    "longitude": -76.3058324,
+    "Geocodio Accuracy Score": 1,
+    "Geocodio Accuracy Type": "rooftop",
+    "Geocodio Address Line 1": "308 Petersburg Rd",
+    "Geocodio Address Line 2": "",
+    "Geocodio Address Line 3": "Lititz, PA 17543",
+    "Geocodio House Number": 308,
+    "Geocodio Street": "Petersburg Rd",
+    "Geocodio Unit Type": "",
+    "Geocodio Unit Number": "",
+    "Geocodio City": "Lititz",
+    "Geocodio State": "PA",
+    "Geocodio County": "Lancaster County",
+    "Geocodio Postal Code": 17543,
+    "Geocodio Country": "US",
+    "Geocodio Source": "Lancaster"
+  },
+  {
     "name": "One City Church Lancaster",
     "address": "935 E Walnut St",
     "city": "Lancaster",
