@@ -328,7 +328,7 @@ async function searchChurches() {
         locationPoint = { lat: avgLat, lon: avgLon };
       } else {
         // FALLBACK: geocode ZIP itself
-        const geo = await geocodeQuery(query);
+        const geo = await geocodeQuery(`${query}, PA, USA`);
         if (!geo) {
           displayResults([]);
           return;
