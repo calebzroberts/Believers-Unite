@@ -169,7 +169,7 @@ function displayResults(results) {
     card.innerHTML = `
       <div class="info">
         <h3>${escapeHtml(ch.name)}</h3>
-        <p><strong>Address:</strong> ${escapeHtml(ch.address)}, ${escapeHtml(ch.city)}, ${escapeHtml(ch.zip)}</p><br>
+        <p><strong>Address:</strong> ${escapeHtml(ch.address)}, ${escapeHtml(ch.city)}, PA ${escapeHtml(ch.zip)}</p><br>
         <p><strong>Distance:</strong> ${ch.distance ? ch.distance.toFixed(1) : "?"} miles</p>
       </div>
       <div class="church-links">
@@ -318,22 +318,25 @@ async function searchChurches() {
 
     // ZIP CODE SEARCH (NO GEOCODING)
     if (isZip && !usingMyLocation) {
-      zipSearchMode = true;
 
       const zipMatches = churchesCache.filter(ch => String(ch.zip) === query);
 
-      if (!zipMatches.length) {
-        displayResults([]);
-        return;
+      if (zipMatches.length) {
+        // Use centroid of churches in ZIP
+        const avgLat = zipMatches.reduce((s,c)=>s+c.latitude,0) / zipMatches.length;
+        const avgLon = zipMatches.reduce((s,c)=>s+c.longitude,0) / zipMatches.length;
+        locationPoint = { lat: avgLat, lon: avgLon };
+      } else {
+        // FALLBACK: geocode ZIP itself
+        const geo = await geocodeQuery(query);
+        if (!geo) {
+          displayResults([]);
+          return;
+        }
+        locationPoint = geo;
       }
+    }
 
-      // Use the average location of matching ZIP churches
-      const avgLat = zipMatches.reduce((s,c)=>s+c.latitude,0) / zipMatches.length;
-      const avgLon = zipMatches.reduce((s,c)=>s+c.longitude,0) / zipMatches.length;
-
-      locationPoint = { lat: avgLat, lon: avgLon };
-
-    } 
     // CITY / ADDRESS SEARCH
     else {
       typedLocation = await geocodeQuery(query);
