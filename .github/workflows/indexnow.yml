@@ -1,7 +1,7 @@
 name: Sitemap and IndexNow
 on:
   push:
-    branches: [ main ] # If your branch is named 'master', change this to master
+    branches: [ main ] # Change to master if that is your default branch name
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       - name: Generate Sitemap
         uses: cicirello/generate-sitemap@v1
         with:
-          base-url-path: https://believersunite.com/
+          base-url-path: https://believersunite.com/ # REPLACE THIS
           include-html: true
           storage-location: .
 
@@ -28,7 +28,6 @@ jobs:
           git push
 
       - name: Ping IndexNow
-        uses: bojan88/indexnow-action@v2
-        with:
-          sitemap-location: 'https://believersunite.com/sitemap.xml'
-          key: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          # This sends the update signal directly to Bing
+          curl "https://www.bing.com/indexnow?url=https://believersunite.com/sitemap.xml&key=${{ secrets.INDEXNOW_KEY }}"
