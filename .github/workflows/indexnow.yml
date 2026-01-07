@@ -29,5 +29,7 @@ jobs:
 
       - name: Ping IndexNow
         run: |
-          # This sends the update signal directly to Bing
+          # This pings Bing and tells them to check your sitemap
           curl "https://www.bing.com/indexnow?url=https://believersunite.com/sitemap.xml&key=${{ secrets.INDEXNOW_KEY }}"
+          # This also pings Yandex (another IndexNow partner)
+          curl "https://yandex.com/indexnow?url=https://believersunite.com/sitemap.xml&key=${{ secrets.INDEXNOW_KEY }}"
