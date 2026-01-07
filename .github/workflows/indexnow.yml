@@ -1,0 +1,34 @@
+name: Sitemap and IndexNow
+on:
+  push:
+    branches: [ main ] # If your branch is named 'master', change this to master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate Sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://believersunite.com/
+          include-html: true
+          storage-location: .
+
+      - name: Commit and Push Sitemap
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add sitemap.xml
+          git commit -m "Update sitemap" || echo "No changes"
+          git push
+
+      - name: Ping IndexNow
+        uses: bojan88/indexnow-action@v2
+        with:
+          sitemap-location: 'https://believersunite.com/sitemap.xml'
+          key: ${{ secrets.INDEXNOW_KEY }}
