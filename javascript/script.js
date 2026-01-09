@@ -438,10 +438,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (e.key === "Enter") { e.preventDefault(); usingMyLocation=false; searchChurchesWrapper(); }
   });
 
-  // Contact form
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    document.getElementById("contactSubmitBtn").innerText = "Thanks!";
-    e.target.reset();
-  });
+  
 });
