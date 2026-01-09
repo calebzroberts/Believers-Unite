@@ -290,7 +290,9 @@
     <div class="row">
       <h2>Contact Us</h2>
       <p>If you have questions, comments, or want to get more involved, don’t hesitate to reach out!</p>
-      <form id="contactForm" action="https://formsubmit.co/info@believersunite.com" method="post">
+      <form id="contactForm" action="https://formsubmit.co/info@believersunite.com" method="POST">
+        <input type="hidden" name="_subject" value="Verify Believers Unite Contact Form">
+
         <input type="text" name="firstName" placeholder="First Name" required>
         <input type="text" name="lastName" placeholder="Last Name" required>
         <input type="email" name="email" placeholder="Email" required>
@@ -335,7 +337,7 @@
 
         </div>
 
-        <form id="signupForm" action="https://formsubmit.co/info@believersunite.com" method="post">
+        <form id="signupForm" action="https://formsubmit.co/info@believersunite.com" method="POST">
           <input type="email" id="signupEmail" name="email" placeholder="Your email" required>
           <input type="hidden" name="_next" value="https://believersunite.com/thanks/">
           <button type="submit" class="btn dark" id="signUpBtn">Sign Up</button>
