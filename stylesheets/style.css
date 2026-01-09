@@ -809,6 +809,10 @@ footer .footer-locations {
   margin-bottom: .5rem;
 }
 
+footer .email {
+  margin: 1rem;
+}
+
 .socials {
   display:flex;
   justify-content:center;
