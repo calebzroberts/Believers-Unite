@@ -791,6 +791,11 @@ nav a:hover {
   
 }
 
+#thanks .row {
+  display: block;
+  text-align: center;
+}
+
 #thanks h2 {
   color:#222;
 }
