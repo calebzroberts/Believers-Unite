@@ -15,7 +15,7 @@ jobs:
       - name: Generate Sitemap
         uses: cicirello/generate-sitemap@v1
         with:
-          base-url-path: https://calebzroberts.github.io/Believers-Unite/
+          base-url-path: https://believersunite.com/
           path-to-root: .
           include-html: true
 
