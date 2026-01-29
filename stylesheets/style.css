@@ -792,6 +792,11 @@ nav a:hover {
   
 }
 
+#thanks .row {
+  display: block;
+  text-align: center;
+}
+
 #thanks h2 {
   color:#222;
 }
@@ -850,6 +855,10 @@ footer {
 
 footer .footer-locations {
   margin-bottom: .5rem;
+}
+
+footer .email {
+  margin: 1rem;
 }
 
 .socials {
